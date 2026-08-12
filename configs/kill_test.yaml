@@ -1,0 +1,166 @@
+schema_version: 2
+registration_id: kill_v1
+status: frozen_pending_execution_authorization
+decision_gate: phase_1_kill_test
+frozen_at: "2026-08-11"
+external_registry_status: not_submitted
+run_id_template: kill_v1__{dataset_lower}__{model}__{rul_label}__{sensor_set}__seed{seed}
+
+registration:
+  primary_cells: 120
+  expansion: 2_datasets_x_3_models_x_2_labels_x_2_sensor_sets_x_5_seeds
+  completed_cells_at_freeze: 0
+  outcome_data_seen: false
+  protocol_sha256: 8e0bcda253ab008079a82d536b011d44a31e4cfa308c6df0032c481daea3de44
+  implementation_sha256: ecfb7d1991fdda11572d36ad61eb59e824bae09de3e8c0bd7418227b56f9d9b9
+  pre_execution_amendment:
+    amendment_id: kill_v1_gpu_a1
+    authorized_at: "2026-08-11T23:34:50+08:00"
+    timing: before_any_real_registered_cell
+    primary_cells_pending_at_amendment: 120
+    outcome_data_seen: false
+    scope: deterministic_cuda_device_and_batched_inference_only
+
+dataset_provenance:
+  dataset: C-MAPSS
+  official_distribution_url: https://phm-datasets.s3.amazonaws.com/NASA/6.+Turbofan+Engine+Degradation+Simulation+Data+Set.zip
+  official_landing_page: https://data.nasa.gov/dataset/c-mapss-aircraft-engine-simulator-data-xk2n5
+  accessed: "2026-08-11"
+  archive_file: data/raw/C-MAPSS_Turbofan.zip
+  archive_sha256: c9c5dec12a945a82e8bb4446589d7fb3cc057b5e5d81fa1a12e25ee9912ad3b2
+  extracted_data_dir: data/interim/cmapss
+  terms: NASA_public_distribution_archive_contains_no_explicit_license_file
+  redistribution_policy: preserve_source_attribution_and_do_not_republish_archive_by_default
+
+datasets: [FD001, FD004]
+models: [lstm, cnn_1d, lightgbm]
+
+execution_environment:
+  amendment_id: kill_v1_gpu_a1
+  neural_device: "cuda:0"
+  neural_device_required: true
+  neural_inference_batch_size: 4096
+  lightgbm_device: cpu
+  pytorch_version: 2.13.0+cu130
+  cuda_runtime: "13.0"
+  gpu: NVIDIA_GeForce_RTX_4060_Laptop_GPU_8GB
+  deterministic_algorithms: true
+  cudnn_benchmark: false
+  allow_tf32: false
+  cublas_workspace_config: ":4096:8"
+
+factors:
+  rul_label: [piecewise_125, linear_uncapped]
+  sensor_set: [all_21, common_14]
+
+sensor_sets:
+  all_21: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+  common_14: [2, 3, 4, 7, 8, 9, 11, 12, 13, 14, 15, 17, 20, 21]
+  common_14_basis: frozen_corpus_C04_C07_C09_C16_and_convergent_14_sensor_reports
+
+seeds: [11, 23, 37, 53, 71]
+
+controls:
+  split_seed: 42
+  split_contract:
+    allocation_unit: engine_unit
+    train_fraction: 0.70
+    val_fraction: 0.15
+    calib_fraction: 0.15
+    calib_role: never_used_for_training_or_tuning
+    files: configs/splits/{dataset}_seed42.json
+  preprocessing:
+    scaler: minmax_0_1
+    fit_population: registered_train_units_only
+    fitted_after_unit_split: true
+    fit_columns: selected_sensor_set_only
+  window:
+    length: 30
+    stride: 1
+    training_policy: all_complete_within_engine_windows
+    short_official_test_policy: left_pad_first_observation_for_endpoint_only
+  target:
+    piecewise_125: min(raw_rul,125)_for_train_val_calib_and_test_truth
+    linear_uncapped: raw_rul_for_train_val_calib_and_test_truth
+  official_test:
+    metric_population: one_last_valid_window_per_engine
+    artifact_population: all_complete_within_engine_windows
+    unit_counts: {FD001: 100, FD004: 248}
+  model_selection:
+    criterion: lowest_validation_rmse
+    calibration_access: forbidden
+    official_test_access: forbidden_until_final_prediction
+  output_mode: point
+  metrics: [rmse, nasa_score]
+
+model_budgets:
+  lstm:
+    hidden_size: 64
+    layers: 1
+    epochs_max: 50
+    batch_size: 256
+    optimizer: adam
+    learning_rate: 0.001
+    weight_decay: 0.00001
+    early_stopping_patience: 8
+  cnn_1d:
+    channels: [64, 64]
+    kernels: [5, 3]
+    pooling: adaptive_average
+    epochs_max: 50
+    batch_size: 256
+    optimizer: adam
+    learning_rate: 0.001
+    weight_decay: 0.00001
+    early_stopping_patience: 8
+  lightgbm:
+    feature_engineering: chronological_window_flatten_only
+    n_estimators: 500
+    learning_rate: 0.05
+    num_leaves: 31
+    subsample: 1.0
+    colsample_bytree: 1.0
+    n_jobs: 1
+    deterministic: true
+
+metric_definitions:
+  error: d_equals_pred_rul_minus_true_rul
+  rmse: sqrt_mean_squared_error_over_official_test_engine_endpoints
+  nasa_score:
+    d_lt_0: exp(-d/13)-1
+    d_gte_0: exp(d/10)-1
+    aggregation: sum_over_official_test_engine_endpoints
+
+registered_contrasts:
+  label_effect: paired_within_dataset_model_sensor_set_seed
+  sensor_effect: paired_within_dataset_model_label_seed
+  ranking_reversal:
+    aggregation: mean_rmse_over_five_seeds_per_dataset_label_sensor_model
+    event: any_model_pair_changes_strict_rmse_order_between_registered_protocol_levels
+
+decision_rule:
+  pass_if_any:
+    - maximum_absolute_registered_mean_rmse_effect_gte_1.0
+    - registered_ranking_reversal_count_gt_0
+  fail_if_all:
+    - maximum_absolute_registered_mean_rmse_effect_lt_0.5
+    - registered_ranking_reversal_count_eq_0
+  inconclusive: all_other_complete_outcomes
+  missing_run_policy: any_missing_or_failed_primary_cell_is_INCONCLUSIVE_until_same_config_rerun
+  no_imputation: true
+  no_post_hoc_threshold_or_factor_changes: true
+
+separate_diagnostics:
+  normalization_leakage_audit:
+    levels: [train_only, train_plus_official_test]
+    primary_matrix_member: false
+    kill_decision_member: false
+    status: pending_separate_authorization
+
+execution_gate:
+  real_cells_authorized: true
+  authorization_recorded_at: "2026-08-11T23:34:50+08:00"
+  authorization_scope: all_120_registered_primary_cells
+  automatic_retry_authorized: false
+  required_state: ready_pending_execution_authorization
+  synthetic_smoke_is_not_result: true

@@ -1,0 +1,27 @@
+schema_version: 1
+format: parquet
+row_unit: evaluated_sliding_window
+required_tables: [preds_val.parquet, preds_calib.parquet, preds_test.parquet]
+columns:
+  unit_id:
+    required: always
+    arrow_types: [integer, string]
+  cycle:
+    required: always
+    arrow_types: [integer]
+  true_rul:
+    required: always
+    arrow_types: [floating]
+  pred_rul:
+    required: always
+    arrow_types: [floating]
+  pred_q10:
+    required: quantile
+    arrow_types: [floating]
+  pred_q50:
+    required: quantile
+    arrow_types: [floating]
+  pred_q90:
+    required: quantile
+    arrow_types: [floating]
+quantile_order_constraint: pred_q10 <= pred_q50 <= pred_q90

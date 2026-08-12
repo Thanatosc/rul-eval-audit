@@ -1,0 +1,133 @@
+schema_version: 1
+registration_id: uq_ref_v1
+status: frozen_authorized_for_execution
+frozen_at: "2026-08-12T15:02:00+08:00"
+purpose: topic7_protocol_sensitivity_uq_reference_and_topic6_bounded_integration
+
+authorization:
+  real_postprocessing_authorized: true
+  authorization_source: explicit_user_instruction_run_6b_if_it_improves_the_paper
+  authorized_at: "2026-08-12T14:48:59+08:00"
+  automatic_retry_authorized: false
+  overwrite_existing_output: false
+  execution_order: frozen_cell_register_order
+  failure_policy: stop_on_first_failed_cell_no_retry
+  pre_execution_amendment:
+    amendment_id: uq_ref_v1_a1
+    amended_at: "2026-08-12T15:08:00+08:00"
+    pending_cells_at_amendment: 280
+    test_interval_results_seen: false
+    change: remove_pending_to_running_self_rejection_and_add_source_recomputation_validation
+
+registration:
+  expected_cells: 280
+  expansion: 120_kill_residual_cp_plus_80_unified_residual_cp_plus_80_unified_cqr
+  test_interval_results_seen_at_freeze: false
+  source_model_results_preexist: true
+  implementation_file: scripts/uq_reference_arm.py
+  implementation_sha256: b4ee424936b3333793e46d517fc79916f57403aef5f9d5d40b7d4377727e24c7
+  output_schema: results/schemas/uq_reference_interval.schema.yaml
+  output_schema_sha256: a49e3dcc8ecc4adfc91ab19522a710a955d4c523860e6da9a92445d6746b85f9
+  frozen_cell_register: project/registrations/uq_ref_v1_cells.csv
+  frozen_cell_register_sha256: fb8bbb687feae1c85816c3f821872d38d70839b3041e7ed1ba406686c4be5c99
+  mutable_status_register: results/UQ_REFERENCE_ARM_STATUS.csv
+  upstream_hashes:
+    configs/kill_test.yaml: 370643e71dcb15eb9a9889066fe729069859a2d112a513ce98de30092a3d91ef
+    configs/unified_grid.yaml: 8f22061b39eeac7811d3e1a1eab35e890ef2bd43a0b08e83b3da157bd17bf6ff
+    protocols/unified_v1.md: 8e0bcda253ab008079a82d536b011d44a31e4cfa308c6df0032c481daea3de44
+    results/KILL_TEST_STATUS.csv: cadf78128a9552a62d2e890664e6803bcf17dd007124f5207943c93bf1aaa81f
+    results/UNIFIED_GRID_STATUS.csv: 50f4e6b847d00bb693bf99231386cb5eccb9aca58269024cdd4ab2ca74b24879
+    results/KILL_TEST_DECISION.json: cf4747dbdc42bd3dabac85039ae1ec03fb2e5f75bb1460e5fd6fbbc451b61263
+    results/UNIFIED_GRID_SUMMARY.json: 37baa8183e31d2204b7ed11a1d48349735f8b759e14f187041d4203f813e2484
+
+methods:
+  residual_split_cp:
+    source_output_mode: point
+    score: abs_true_rul_minus_pred_rul
+    interval: pred_rul_plus_or_minus_qhat
+  cqr:
+    source_output_mode: quantile
+    base_quantiles: [0.10, 0.90]
+    score: max_pred_q10_minus_true_rul_or_true_rul_minus_pred_q90
+    interval: pred_q10_minus_qhat_to_pred_q90_plus_qhat
+
+calibration:
+  alpha: 0.10
+  nominal_coverage: 0.90
+  score_population: all_complete_calibration_windows_pooled
+  finite_sample_rank: ceil_of_n_plus_1_times_one_minus_alpha
+  order_statistic_indexing: one_based
+  ties: nonrandomized_higher_order_statistic
+  target_support_clipping: false
+  calibration_units: engine_disjoint_from_train_and_val
+  validity_label: empirical_reference_not_strict_window_level_certificate
+  limitation: overlapping_windows_within_engine_are_not_exchangeable_independent_examples
+
+evaluation:
+  primary_population: all_complete_official_test_windows
+  primary_aggregation: equal_engine_mean_of_within_engine_coverage_and_width
+  primary_metrics: [engine_balanced_coverage, engine_balanced_mean_interval_width]
+  secondary_metrics:
+    - pooled_window_coverage
+    - pooled_window_mean_interval_width
+    - endpoint_coverage
+    - endpoint_mean_interval_width
+  interval_inclusion: closed_lower_and_upper
+  inference_unit: official_test_engine
+  bootstrap:
+    type: paired_engine_cluster_percentile
+    resamples: 20000
+    seed: 20260812
+    confidence_level: 0.95
+    conditions_on_fixed_calibration_scores: true
+    registered_seeds_are_averaged_within_engine_before_resampling: true
+  practical_coverage_shift_reference: 0.03
+  interpretation: planning_reference_not_binary_success_gate
+
+panels:
+  kill_protocol_sensitivity:
+    source_register: results/KILL_TEST_STATUS.csv
+    expected_source_runs: 120
+    methods: [residual_split_cp]
+    contrasts:
+      - linear_uncapped_minus_piecewise_125_holding_sensor_set
+      - common_14_minus_all_21_holding_rul_label
+  unified_reference:
+    source_register: results/UNIFIED_GRID_STATUS.csv
+    expected_source_runs: 160
+    mapping:
+      point: residual_split_cp
+      quantile: cqr
+    paired_method_contrast: cqr_minus_residual_split_cp
+    cqr_secondary_diagnostic: calibrated_cqr_minus_uncalibrated_q10_q90
+
+missing_data_policy:
+  no_imputation: true
+  source_run_missing_or_invalid: fail_registered_cell_and_stop
+  empty_calibration_or_test: fail_registered_cell_and_stop
+  nonfinite_score_or_bound: fail_registered_cell_and_stop
+  duplicate_or_existing_output: refuse_overwrite
+  incomplete_panel_analysis: mark_package_inconclusive_until_same_registration_completed
+
+outputs:
+  per_cell_root: results/uq_reference
+  calibration_scores: calibration_scores.parquet
+  test_intervals: intervals_test.parquet
+  cell_meta: meta.json
+  cell_summary: summary.json
+  aggregate_cell_summary: results/uq_reference/UQ_REFERENCE_CELL_SUMMARY.csv
+  protocol_contrasts: results/uq_reference/UQ_PROTOCOL_CONTRASTS.csv
+  method_comparisons: results/uq_reference/UQ_METHOD_COMPARISONS.csv
+  cqr_calibration_effects: results/uq_reference/UQ_CQR_CALIBRATION_EFFECTS.csv
+  aggregate_summary: results/uq_reference/UQ_REFERENCE_SUMMARY.json
+  result_report: project/TOPIC6_WORK_PACKAGE_6B_RESULT.md
+  figure: paper/figures/FIG_UQ_REFERENCE_ARM.png
+
+prohibited_scope:
+  - conditional_or_stagewise_or_mondrian_coverage_claims
+  - unit_level_hcp_cluster_score_or_trajectory_maximum_method_arms
+  - grouped_weighted_or_hierarchical_conformal_expansion
+  - gwcp_or_corrected_gwcp
+  - new_conformal_theory_or_novelty_claim
+  - maintenance_cost_or_trigger_policy_mainline
+  - n_cmapss_or_cross_condition_shift_expansion

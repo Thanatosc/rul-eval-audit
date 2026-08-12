@@ -1,0 +1,37 @@
+{
+  "bootstrap": {
+    "conditions_on_fixed_calibration_scores": true,
+    "confidence_level": 0.95,
+    "registered_seeds_are_averaged_within_engine_before_resampling": true,
+    "resamples": 20000,
+    "seed": 20260812,
+    "type": "paired_engine_cluster_percentile"
+  },
+  "completed_cells": 280,
+  "cqr_calibration_comparisons": 16,
+  "cqr_closer_to_nominal_than_base_count": 12,
+  "cqr_closer_to_nominal_than_residual_count": 9,
+  "failed_cells": 0,
+  "maximum_absolute_protocol_coverage_shift": 0.14077686092980846,
+  "method_comparisons": 16,
+  "output_hashes": {
+    "paper/figures/FIG_UQ_REFERENCE_ARM.png": "41e1e8936a91f7fbf8f7db796cb23d073f9f2d1c9e4b8f53fdc59b97aca708f8",
+    "results/uq_reference/UQ_CQR_CALIBRATION_EFFECTS.csv": "16ec7e283aec950896d3d1dd8c9df6ac95c6731cfc81a27edab3ab427b6d3c45",
+    "results/uq_reference/UQ_METHOD_COMPARISONS.csv": "b11c1af0f17d3fc946464a3ca98dd5425be610ddb39b7740eb1125be00af6271",
+    "results/uq_reference/UQ_PROTOCOL_CONTRASTS.csv": "f5ab241ec47b29ff74d4628c345270b2ad3d9f4acd463b0c7786e623782032be",
+    "results/uq_reference/UQ_REFERENCE_CELL_SUMMARY.csv": "b580c33aeb5b177485068d05ec662276ce65938405b5fcb8b5f45e87e6d3a718"
+  },
+  "panel_counts": {
+    "kill_protocol_sensitivity_residual_split_cp": 120,
+    "unified_reference_cqr": 80,
+    "unified_reference_residual_split_cp": 80
+  },
+  "protocol_contrasts": 24,
+  "protocol_contrasts_abs_coverage_shift_ge_0_03": 12,
+  "registered_cells": 280,
+  "registration_id": "uq_ref_v1",
+  "schema_version": 1,
+  "status": "completed_validated",
+  "validated_cells": 280,
+  "validity_label": "empirical_reference_not_strict_window_level_certificate"
+}

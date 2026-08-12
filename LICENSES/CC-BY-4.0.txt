@@ -1,0 +1,13 @@
+
+# Data and documentation license notice
+
+Generated result data, generated figures, literature coding tables, and
+non-software documentation in this release are licensed under the Creative
+Commons Attribution 4.0 International License (CC BY 4.0):
+https://creativecommons.org/licenses/by/4.0/
+
+Copyright (c) 2026 Siyu Cai.
+
+The MIT License in `LICENSE` applies to source code, scripts, tests, and software
+configuration. Third-party datasets and publications are not included and are
+not relicensed by this project.

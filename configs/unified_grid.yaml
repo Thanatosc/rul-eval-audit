@@ -1,0 +1,174 @@
+schema_version: 2
+grid_id: unified_v1
+status: frozen_authorized_for_execution
+purpose: topic_7_unified_benchmark_and_topic_6_asset_interface
+frozen_at: "2026-08-12"
+
+registration:
+  expected_cells: 160
+  expansion: 4_backbones_x_4_subsets_x_5_seeds_x_2_output_modes
+  completed_cells_at_amendment: 0
+  outcome_data_seen: false
+  protocol_sha256: 8e0bcda253ab008079a82d536b011d44a31e4cfa308c6df0032c481daea3de44
+  implementation_sha256: 2cb56862cb299ac24bd5edc32fa65925096de28009f3c1b9088083428da6de69
+  pre_execution_amendment:
+    amendment_id: unified_v1_gpu_a1
+    authorized_at: "2026-08-12T12:00:00+08:00"
+    authorization_source: explicit_user_instruction_continue_complete_160_cells
+    timing: before_any_real_unified_cell
+    pending_cells_at_amendment: 160
+    outcome_data_seen: false
+
+protocol:
+  version: unified_v1
+  document: protocols/unified_v1.md
+  split_allocation_unit: engine_unit
+  split_fractions:
+    train: 0.70
+    val: 0.15
+    calib: 0.15
+  calibration_role: never_used_for_training_or_tuning
+  prediction_splits: [val, calib, test]
+
+dataset_provenance:
+  dataset: C-MAPSS
+  archive_file: data/raw/C-MAPSS_Turbofan.zip
+  archive_sha256: c9c5dec12a945a82e8bb4446589d7fb3cc057b5e5d81fa1a12e25ee9912ad3b2
+  extracted_data_dir: data/interim/cmapss
+  split_seed: 42
+
+datasets:
+  - dataset: C-MAPSS
+    subsets: [FD001, FD002, FD003, FD004]
+
+backbones:
+  - id: lstm
+    label: LSTM
+  - id: cnn_1d
+    label: 1D-CNN
+  - id: transformer
+    label: Transformer encoder
+  - id: lightgbm
+    label: LightGBM
+
+seeds: [11, 23, 37, 53, 71]
+
+output_modes:
+  point:
+    objective: mse
+    required_prediction_columns: [pred_rul]
+  quantile:
+    objective: pinball
+    quantiles: [0.10, 0.50, 0.90]
+    required_prediction_columns: [pred_rul, pred_q10, pred_q50, pred_q90]
+    point_alias: pred_rul_equals_pred_q50
+
+controls:
+  target:
+    label: piecewise_125
+    definition: min_raw_rul_125_for_train_val_calib_and_test_truth
+    basis: modal_explicit_label_in_frozen_19_paper_corpus
+  features:
+    sensor_set: common_14
+    sensors: [2, 3, 4, 7, 8, 9, 11, 12, 13, 14, 15, 17, 20, 21]
+    basis: frozen_corpus_C04_C07_C09_C16_and_convergent_14_sensor_reports
+  preprocessing:
+    scaler: minmax_0_1
+    fit_population: registered_train_units_only
+    fitted_after_unit_split: true
+  window:
+    length: 30
+    stride: 1
+    training_policy: all_complete_within_engine_windows
+    short_official_test_policy: left_pad_first_observation_for_endpoint_only
+  model_selection:
+    criterion: lowest_validation_rmse_using_point_or_q50
+    calibration_access: forbidden
+    official_test_access: forbidden_until_final_prediction
+  official_test:
+    metric_population: one_last_valid_window_per_engine
+    artifact_population: all_complete_within_engine_windows
+    unit_counts: {FD001: 100, FD002: 259, FD003: 100, FD004: 248}
+  metrics: [rmse, nasa_score]
+
+model_budgets:
+  lstm:
+    hidden_size: 64
+    layers: 1
+    epochs_max: 50
+    batch_size: 256
+    optimizer: adam
+    learning_rate: 0.001
+    weight_decay: 0.00001
+    early_stopping_patience: 8
+  cnn_1d:
+    channels: [64, 64]
+    kernels: [5, 3]
+    pooling: adaptive_average
+    epochs_max: 50
+    batch_size: 256
+    optimizer: adam
+    learning_rate: 0.001
+    weight_decay: 0.00001
+    early_stopping_patience: 8
+  transformer:
+    input_projection: linear
+    d_model: 64
+    attention_heads: 4
+    encoder_layers: 2
+    feedforward_size: 128
+    dropout: 0.10
+    activation: gelu
+    positional_encoding: sinusoidal
+    pooling: last_time_step
+    epochs_max: 50
+    batch_size: 256
+    optimizer: adam
+    learning_rate: 0.001
+    weight_decay: 0.00001
+    early_stopping_patience: 8
+  lightgbm:
+    feature_engineering: chronological_window_flatten_only
+    n_estimators: 500
+    learning_rate: 0.05
+    num_leaves: 31
+    subsample: 1.0
+    colsample_bytree: 1.0
+    n_jobs: 1
+    deterministic: true
+    quantile_models: one_per_q10_q50_q90
+
+execution_environment:
+  amendment_id: unified_v1_gpu_a1
+  neural_device: "cuda:0"
+  neural_device_required: true
+  neural_inference_batch_size: 4096
+  lightgbm_device: cpu
+  python_version: 3.11.9
+  pytorch_version: 2.13.0+cu130
+  cuda_runtime: "13.0"
+  gpu: NVIDIA_GeForce_RTX_4060_Laptop_GPU_8GB
+  deterministic_algorithms: true
+  cudnn_benchmark: false
+  allow_tf32: false
+  attention_backend: deterministic_math_sdp
+  cublas_workspace_config: ":4096:8"
+
+expected_cells: 160
+status_register: results/UNIFIED_GRID_STATUS.csv
+run_id_template: unified_v1__{subset_lower}__{model}__seed{seed}__{output_mode}
+
+execution_gate:
+  ready: true
+  real_cells_authorized: true
+  authorization_recorded_at: "2026-08-12T12:00:00+08:00"
+  authorization_scope: all_160_registered_unified_cells
+  automatic_retry_authorized: false
+  execution_order: status_register_row_order
+  failure_policy: stop_on_first_failed_cell_no_retry
+  overwrite_existing_run_directory: false
+  synthetic_smoke_is_not_result: true
+  excluded_actions:
+    - topic6_uq_reference_arm
+    - normalization_leakage_diagnostic
+    - additional_protocol_matrix

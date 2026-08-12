@@ -1,0 +1,10 @@
+stage,count,status,notes
+records_identified,25,fixed,candidate_corpus rows
+duplicates_removed,0,complete,DOI and normalized-title deduplication
+records_screened,25,complete,title and abstract screening
+full_texts_sought,25,complete,official OA author institutional or user-entitled routes only
+full_texts_not_retrieved,0,complete,all 25 candidates have an accepted exact full text
+full_texts_assessed,25,complete,24 local PDFs with identity verification and preflight PASS plus 1 exact remote institutional PDF without local preflight
+included_model_protocol_papers,19,complete,C01-C18 excluding anchor C19 plus C21; all 19 model/protocol records coded
+included_supporting_anchors,6,complete,C19 C20 C22 C23 C24 C25
+included_total,25,complete,19 model/protocol papers plus 6 anchors; anchors remain outside model-paper denominator

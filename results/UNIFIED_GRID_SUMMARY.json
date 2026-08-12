@@ -1,0 +1,23 @@
+{
+  "artifact_validation_errors": 0,
+  "calib_isolation_checks": 160,
+  "completed_cells": 160,
+  "failed_cells": 0,
+  "implementation_sha256": "2cb56862cb299ac24bd5edc32fa65925096de28009f3c1b9088083428da6de69",
+  "outputs": [
+    "results/UNIFIED_GRID_RUN_METRICS.parquet",
+    "results/UNIFIED_GRID_MEAN_METRICS.csv",
+    "results/UNIFIED_GRID_POINT_QUANTILE_PAIRS.csv"
+  ],
+  "point_cells": 80,
+  "protocol_sha256": "8e0bcda253ab008079a82d536b011d44a31e4cfa308c6df0032c481daea3de44",
+  "quantile_cells": 80,
+  "quantile_contract_checks": 80,
+  "recomputed_endpoint_metrics": 160,
+  "registered_cells": 160,
+  "schema_version": 1,
+  "status": "completed_validated",
+  "total_training_seconds": 7562.936837099856,
+  "validated_prediction_tables": 480,
+  "validated_run_directories": 160
+}

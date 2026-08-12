@@ -1,0 +1,3 @@
+transition,dataset,held_level,level_a,level_b,model_a,model_b,mean_rmse_delta_a,mean_rmse_delta_b
+label,FD001,all_21,piecewise_125,linear_uncapped,lstm,cnn_1d,2.7699358767876063,-1.8697498423969172
+sensor,FD001,linear_uncapped,all_21,common_14,lstm,cnn_1d,-1.8697498423969172,5.1668865230115735

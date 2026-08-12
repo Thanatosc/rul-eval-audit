@@ -1,0 +1,26 @@
+{
+  "upload_type": "software",
+  "title": "RUL Evaluation Audit: Reproducible Code and Aggregate Results",
+  "creators": [
+    {
+      "name": "Cai, Siyu",
+      "affiliation": "School of Computing and Artificial Intelligence, Southwest Jiaotong University",
+      "orcid": "0009-0003-3716-0008"
+    }
+  ],
+  "description": "<p>Reproducible software, frozen protocols, split manifests, literature-practice coding tables, aggregate result tables, figures, and validation tests for a controlled audit of evaluation practices in NASA C-MAPSS remaining-useful-life prediction.</p><p>The release supports a 120-cell protocol Kill Test, a 160-cell unified point/quantile grid, and a bounded 280-cell uncertainty-reference arm. It does not propose a new forecasting model or claim state-of-the-art performance.</p><p>NASA C-MAPSS source files and restricted literature PDFs are not redistributed. Generated per-window prediction and interval artifacts are deposited separately as a companion dataset.</p>",
+  "access_right": "open",
+  "license": "mit",
+  "version": "0.1.0",
+  "language": "eng",
+  "keywords": [
+    "C-MAPSS",
+    "remaining useful life",
+    "evaluation protocol",
+    "benchmark audit",
+    "reproducibility",
+    "uncertainty quantification",
+    "conformal prediction"
+  ],
+  "related_identifiers": []
+}

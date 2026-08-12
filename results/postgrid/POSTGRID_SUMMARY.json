@@ -1,0 +1,71 @@
+{
+  "alpha": 0.05,
+  "analysis_id": "postgrid_analysis_v1",
+  "bootstrap_resamples": 20000,
+  "cell_closure": {
+    "kill_test": 120,
+    "unified_grid": 160
+  },
+  "fallacy_scan": {
+    "checked": 11,
+    "total": 11
+  },
+  "input_hashes": {
+    "results/KILL_TEST_RANKING_REVERSALS.csv": "b2b37af08c1bc401d4f7d7a1f880ef167c20d9e6c3888b42a5a077afd93c37a5",
+    "results/KILL_TEST_RMSE_EFFECTS.csv": "e2e3a47bb64c64e6e8d63c700f08c3089eade476c33ae7ae9410f4448c5d05ca",
+    "results/KILL_TEST_RUN_METRICS.parquet": "60e1b19cfa2f0be10640d4431ce400dbd491bb019059d6662a7785822f000a8a",
+    "results/UNIFIED_GRID_RUN_METRICS.parquet": "48e99c2fc935f17b1b92295cceec549d149e21150567ff534c2087ce19130976"
+  },
+  "kill_test": {
+    "holm_rejections": 0,
+    "largest_absolute_mean_effect": 20.532261985655634,
+    "largest_effect_context": {
+      "dataset": "FD004",
+      "effect_type": "label",
+      "held_level": "common_14",
+      "model": "lightgbm"
+    },
+    "registered_contrasts": 24,
+    "registered_ranking_reversals": 2
+  },
+  "master_seed": 20260812,
+  "metric_agreement": {
+    "contexts": 80,
+    "median_kendall_tau_b": 1.0,
+    "median_spearman_rho": 1.0,
+    "winner_conflicts": 7
+  },
+  "output_hashes": {
+    "paper/figures/FIG_KILL_TEST_EFFECTS.png": "fb5683cfb389ba02698da936c39d108d169c6babcbdb1d5dc3411682854e155e",
+    "paper/figures/FIG_RANK_AGREEMENT.png": "cf1eb8445b57b16b4acbbcf5ef8f8905fb337755e6cd444f2d51a588b4dbe20d",
+    "paper/figures/FIG_UNIFIED_RMSE_STABILITY.png": "88ec109a21858b4b6fe25c5020811c9927c920e766d36e533c451d9b151e573d",
+    "results/postgrid/KILL_TEST_CONTRAST_INFERENCE.csv": "e92dd40f55b29d44141914c8f321259fc9c862a3edbba4bbd2c5888092ecd426",
+    "results/postgrid/KILL_TEST_RANKING_FLIP_MATRIX.csv": "ae774da1ceb2a447bfa88b111a7c5ca9f65c472df8650264ef315f42e9ed0086",
+    "results/postgrid/METRIC_RANK_CONSISTENCY.csv": "9b6e2b1adeed3e5a03c6d1104945f282440230272fadc03152f9921e59442a5b",
+    "results/postgrid/METRIC_WINNER_CONFLICTS.csv": "db7d0655703c9eb40e3ab8cb868554325813c36f20b7824deec603932e70fe6d",
+    "results/postgrid/POINT_QUANTILE_DESCRIPTIVE.csv": "e09caf13f2f5b95690a89554b42a3379a467bd0d82a19a7572342e145d03a914",
+    "results/postgrid/POSTGRID_STATISTICAL_VALIDATION.md": "b7b9d2432f41beed86071fcb9f073aa17a6b55e8dc76b9830a55a7aa1c49ff4c",
+    "results/postgrid/UNIFIED_KENDALL_W.csv": "34b9149e0145cef50e09c655c01ee99494195b0a3ae20fdc2aabbf6ece8f9243",
+    "results/postgrid/UNIFIED_MODEL_STABILITY.csv": "7dc40278c382ec8252a266792873777ff3d2709868fb09612ac32ba98297db4e",
+    "results/postgrid/UNIFIED_PAIRWISE_STABILITY.csv": "b16a50e3ef874e91b1b70d66eb8b039426369fbb15a8a7ec5238f5100372b2e8",
+    "results/postgrid/UNIFIED_POINT_QUANTILE_FLIPS.csv": "6263a07283a3163cceca7fcbb86352d1a7867fbf7e6b6af5b4e3fef9331db694"
+  },
+  "plan_sha256": "8d15454a87ccef36135225c83cc145d439cfa26806cb13418a4903097b76d823",
+  "point_quantile": {
+    "inference_permitted": false,
+    "paired_cells": 80,
+    "quantile_lower_nasa_pairs": 18,
+    "quantile_lower_rmse_pairs": 13
+  },
+  "schema_version": 1,
+  "status": "completed_verified",
+  "unified_grid": {
+    "kendall_holm_rejections": 8,
+    "kendall_panels": 8,
+    "maximum_kendalls_w": 1.0,
+    "minimum_kendalls_w": 0.712,
+    "model_stability_rows": 32,
+    "pairwise_stability_rows": 48,
+    "point_quantile_strict_ranking_flips": 16
+  }
+}

@@ -1,0 +1,7 @@
+transition,model_a,model_b,evaluated_contexts,ranking_reversal_count,ranking_reversal_rate
+label,lstm,cnn_1d,4,1,0.25
+label,lstm,lightgbm,4,0,0.0
+label,cnn_1d,lightgbm,4,0,0.0
+sensor,lstm,cnn_1d,4,1,0.25
+sensor,lstm,lightgbm,4,0,0.0
+sensor,cnn_1d,lightgbm,4,0,0.0

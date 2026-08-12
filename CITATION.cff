@@ -1,0 +1,18 @@
+
+cff-version: 1.2.0
+message: "If you use this software, please cite the archived software release."
+title: "RUL Evaluation Audit: Reproducible Code and Aggregate Results"
+type: software
+version: 0.1.0
+authors:
+  - family-names: Cai
+    given-names: Siyu
+    orcid: "https://orcid.org/0009-0003-3716-0008"
+    affiliation: "School of Computing and Artificial Intelligence, Southwest Jiaotong University"
+license: MIT
+keywords:
+  - C-MAPSS
+  - remaining useful life
+  - evaluation protocol
+  - benchmark audit
+  - reproducibility

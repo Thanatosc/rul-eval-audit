@@ -1,0 +1,51 @@
+schema_version: 1
+format: parquet
+row_unit: evaluated_test_window
+required_table: intervals_test.parquet
+columns:
+  unit_id:
+    required: always
+    arrow_types: [integer, string]
+  cycle:
+    required: always
+    arrow_types: [integer]
+  true_rul:
+    required: always
+    arrow_types: [floating]
+  pred_rul:
+    required: always
+    arrow_types: [floating]
+  lower:
+    required: always
+    arrow_types: [floating]
+  upper:
+    required: always
+    arrow_types: [floating]
+  covered:
+    required: always
+    arrow_types: [boolean]
+  interval_width:
+    required: always
+    arrow_types: [floating]
+  is_endpoint:
+    required: always
+    arrow_types: [boolean]
+  base_lower:
+    required: cqr_only
+    arrow_types: [floating]
+  base_upper:
+    required: cqr_only
+    arrow_types: [floating]
+  base_covered:
+    required: cqr_only
+    arrow_types: [boolean]
+  base_interval_width:
+    required: cqr_only
+    arrow_types: [floating]
+constraints:
+  - lower <= upper
+  - interval_width == upper - lower
+  - covered == (lower <= true_rul <= upper)
+  - exactly_one_is_endpoint_per_unit
+  - cqr_base_lower <= cqr_base_upper
+

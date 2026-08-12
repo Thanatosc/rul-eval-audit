@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "run_meta.schema.json",
+  "title": "RUL audit run metadata",
+  "type": "object",
+  "required": [
+    "run_id",
+    "dataset",
+    "subset",
+    "model",
+    "output_mode",
+    "seed",
+    "protocol_version",
+    "protocol_sha256",
+    "split_file",
+    "split_sha256",
+    "code_revision",
+    "started_at",
+    "finished_at",
+    "training_seconds",
+    "status",
+    "metrics"
+  ],
+  "properties": {
+    "run_id": {"type": "string", "minLength": 1},
+    "dataset": {"type": "string", "minLength": 1},
+    "subset": {"type": "string", "minLength": 1},
+    "model": {"type": "string", "minLength": 1},
+    "output_mode": {"enum": ["point", "quantile"]},
+    "seed": {"type": "integer"},
+    "protocol_version": {"type": "string", "minLength": 1},
+    "protocol_sha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"},
+    "split_file": {"type": "string", "minLength": 1},
+    "split_sha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"},
+    "code_revision": {"type": "string", "minLength": 1},
+    "started_at": {"type": "string", "format": "date-time"},
+    "finished_at": {"type": "string", "format": "date-time"},
+    "training_seconds": {"type": "number", "minimum": 0},
+    "status": {"enum": ["completed", "failed"]},
+    "metrics": {"type": "object"}
+  },
+  "additionalProperties": true
+}
