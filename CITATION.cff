@@ -4,6 +4,10 @@ message: "If you use this software, please cite the archived software release."
 title: "RUL Evaluation Audit: Reproducible Code and Aggregate Results"
 type: software
 version: 0.1.0
+doi: "10.5281/zenodo.21905029"
+date-released: 2026-08-12
+repository-code: "https://github.com/Thanatosc/rul-eval-audit"
+url: "https://doi.org/10.5281/zenodo.21905029"
 authors:
   - family-names: Cai
     given-names: Siyu

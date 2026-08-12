@@ -93,8 +93,15 @@ wise, or deployment coverage certificate.
 
 ## Citation and archival identifiers
 
-Version-specific and concept DOIs will be inserted after the reviewed software
-and dataset records are published. No DOI from another project applies here.
+- Software v0.1.0: <https://doi.org/10.5281/zenodo.21905029>
+- Software concept DOI: <https://doi.org/10.5281/zenodo.21905028>
+- Generated result dataset v1.0.0: <https://doi.org/10.5281/zenodo.21905033>
+- Dataset concept DOI: <https://doi.org/10.5281/zenodo.21905032>
+- GitHub release source: <https://github.com/Thanatosc/rul-eval-audit/tree/v0.1.0>
+
+Use the version-specific software DOI when citing this exact code release and
+the version-specific dataset DOI when using the generated prediction or
+interval artifacts. Concept DOIs resolve to the latest published version.
 
 ## Authorship and declarations
 
