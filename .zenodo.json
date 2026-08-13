@@ -11,7 +11,7 @@
   "description": "<p>Reproducible software, frozen protocols, split manifests, literature-practice coding tables, aggregate result tables, figures, and validation tests for a controlled audit of evaluation practices in NASA C-MAPSS remaining-useful-life prediction.</p><p>The release supports a 120-cell protocol Kill Test, a 160-cell unified point/quantile grid, a bounded 280-cell uncertainty-reference arm, and a secondary common-truth rescoring of all 120 Kill Test prediction artifacts. The common-truth plan pre-listed LSTM-versus-CNN checks; the implementation's wider model-pair scan is an exploratory descriptive extension. The release does not propose a new forecasting model or claim state-of-the-art performance.</p><p>NASA C-MAPSS source files and restricted literature PDFs are not redistributed. Generated per-window prediction and interval artifacts are deposited separately as a companion dataset.</p>",
   "access_right": "open",
   "license": "mit",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publication_date": "2026-08-13",
   "language": "eng",
   "keywords": [
@@ -25,12 +25,12 @@
   ],
   "related_identifiers": [
     {
-      "identifier": "https://github.com/Thanatosc/rul-eval-audit/tree/v0.1.1",
+      "identifier": "https://github.com/Thanatosc/rul-eval-audit/tree/v0.1.2",
       "relation": "isIdenticalTo",
       "scheme": "url"
     },
     {
-      "identifier": "10.5281/zenodo.21905033",
+      "identifier": "10.5281/zenodo.21915990",
       "relation": "isSupplementedBy",
       "scheme": "doi"
     }

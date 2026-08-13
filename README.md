@@ -109,11 +109,11 @@ wise, or deployment coverage certificate.
 
 ## Citation and archival identifiers
 
-- Software v0.1.1: <https://doi.org/10.5281/zenodo.21905029>
+- Software v0.1.2: <https://doi.org/10.5281/zenodo.21915989>
 - Software concept DOI: <https://doi.org/10.5281/zenodo.21905028>
-- Generated result dataset v1.0.1: <https://doi.org/10.5281/zenodo.21905033>
+- Generated result dataset v1.0.2: <https://doi.org/10.5281/zenodo.21915990>
 - Dataset concept DOI: <https://doi.org/10.5281/zenodo.21905032>
-- GitHub release source: <https://github.com/Thanatosc/rul-eval-audit/tree/v0.1.1>
+- GitHub release source: <https://github.com/Thanatosc/rul-eval-audit/tree/v0.1.2>
 
 Use the version-specific software DOI when citing this exact code release and
 the version-specific dataset DOI when using the generated prediction or

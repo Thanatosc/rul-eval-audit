@@ -20,7 +20,7 @@ LSTM-versus-CNN checks is exploratory and does not update `kill_v1`.
 ## Restore the companion result dataset
 
 Every dataset ZIP has the same top-level directory,
-`rul-eval-audit-results-v1.0.1/`. Extract all parts into one temporary directory,
+`rul-eval-audit-results-v1.0.2/`. Extract all parts into one temporary directory,
 then copy that directory's contents into the repository root. Parts contain
 disjoint files and may be extracted in any order.
 

@@ -3,11 +3,11 @@ cff-version: 1.2.0
 message: "If you use this software, please cite the archived software release."
 title: "RUL Evaluation Audit: Reproducible Code and Aggregate Results"
 type: software
-version: 0.1.1
-doi: "10.5281/zenodo.21905029"
+version: 0.1.2
+doi: "10.5281/zenodo.21915989"
 date-released: 2026-08-13
 repository-code: "https://github.com/Thanatosc/rul-eval-audit"
-url: "https://doi.org/10.5281/zenodo.21905029"
+url: "https://doi.org/10.5281/zenodo.21915989"
 authors:
   - family-names: Cai
     given-names: Siyu

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "rul-eval-audit"
-version = "0.1.1"
+version = "0.1.2"
 description = "Reproducible audit of C-MAPSS RUL evaluation protocols"
 requires-python = ">=3.11,<3.12"
 dependencies = [
