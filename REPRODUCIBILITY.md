@@ -11,10 +11,16 @@
 Analysis reproduction is the recommended first step because the released
 prediction artifacts are the direct inputs to all reported post-hoc statistics.
 
+The secondary common-truth analysis is frozen separately from the primary Kill
+Test. Its plan is retained at
+`project/stage4_revision/COMMON_TRUTH_SENSITIVITY_PLAN.md`; its aggregate outputs
+are under `results/common_truth/`. The all-model-pair scan beyond the pre-listed
+LSTM-versus-CNN checks is exploratory and does not update `kill_v1`.
+
 ## Restore the companion result dataset
 
 Every dataset ZIP has the same top-level directory,
-`rul-eval-audit-results-v1.0.0/`. Extract all parts into one temporary directory,
+`rul-eval-audit-results-v1.0.1/`. Extract all parts into one temporary directory,
 then copy that directory's contents into the repository root. Parts contain
 disjoint files and may be extracted in any order.
 

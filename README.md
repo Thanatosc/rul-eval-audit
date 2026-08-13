@@ -20,6 +20,8 @@ the-art claim.
   seeds, and two output modes;
 - 280-cell empirical uncertainty reference arm using residual split conformal
   prediction and conformalized quantile regression;
+- secondary common-truth rescoring of all 120 Kill Test prediction artifacts,
+  with 24 paired contrasts and three strict model-pair reversals;
 - frozen configurations, engine-unit split manifests, aggregate results,
   figures, schemas, and validation tests.
 
@@ -87,17 +89,31 @@ After restoring all companion dataset parts into the repository root, run:
 .\.venv\Scripts\python.exe scripts\uq_reference_arm.py --root . --analyze
 ```
 
+The common-truth aggregate tables can be checked through the test suite without
+redistributing NASA source data. Re-executing the common-truth rescoring script
+also requires the official NASA archive and extracted test/RUL tables described
+in `data/DATASETS.md`:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\analyze_common_truth.py --root .
+```
+
+The common-truth plan pre-listed LSTM-versus-CNN reversal checks. The analysis
+script also scans all configured model pairs as an exploratory descriptive
+extension; the additional LSTM-versus-LightGBM reversal is therefore
+exploratory rather than prospectively specified.
+
 The UQ arm is an empirical reference under the declared engine-disjoint
 calibration design. It is not a strict window-level, conditional, trajectory-
 wise, or deployment coverage certificate.
 
 ## Citation and archival identifiers
 
-- Software v0.1.0: <https://doi.org/10.5281/zenodo.21905029>
+- Software v0.1.1: <https://doi.org/10.5281/zenodo.21905029>
 - Software concept DOI: <https://doi.org/10.5281/zenodo.21905028>
-- Generated result dataset v1.0.0: <https://doi.org/10.5281/zenodo.21905033>
+- Generated result dataset v1.0.1: <https://doi.org/10.5281/zenodo.21905033>
 - Dataset concept DOI: <https://doi.org/10.5281/zenodo.21905032>
-- GitHub release source: <https://github.com/Thanatosc/rul-eval-audit/tree/v0.1.0>
+- GitHub release source: <https://github.com/Thanatosc/rul-eval-audit/tree/v0.1.1>
 
 Use the version-specific software DOI when citing this exact code release and
 the version-specific dataset DOI when using the generated prediction or

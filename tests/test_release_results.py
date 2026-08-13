@@ -64,6 +64,24 @@ def test_uq_aggregate_assets_close() -> None:
     assert len(calibration) == 16
 
 
+def test_common_truth_assets_close() -> None:
+    result_root = ROOT / "results" / "common_truth"
+    summary = json.loads((result_root / "COMMON_TRUTH_SUMMARY.json").read_text())
+    contrasts = pd.read_csv(result_root / "COMMON_TRUTH_LABEL_CONTRASTS.csv")
+    reversals = pd.read_csv(result_root / "COMMON_TRUTH_RANKING_REVERSALS.csv")
+    metrics = pd.read_csv(result_root / "COMMON_TRUTH_RUN_METRICS.csv")
+
+    assert summary["status"] == "completed_validated"
+    assert summary["registered_input_runs"] == 120
+    assert summary["run_truth_metric_rows"] == 240
+    assert summary["paired_label_contrasts"] == 24
+    assert summary["ranking_reversal_count"] == 3
+    assert summary["changes_kill_v1_decision"] is False
+    assert len(contrasts) == 24
+    assert len(reversals) == 3
+    assert len(metrics) == 240
+
+
 def test_registered_figures_are_present() -> None:
     for name in (
         "FIG_KILL_TEST_EFFECTS.png",

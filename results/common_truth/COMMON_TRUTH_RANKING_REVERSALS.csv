@@ -1,0 +1,4 @@
+common_truth,dataset,sensor_set,model_a,model_b,capped_trained_mean_rmse_delta,linear_trained_mean_rmse_delta
+raw_rul,FD001,all_21,lstm,cnn_1d,3.6389022250274685,-1.8697498423969172
+piecewise_125,FD001,all_21,lstm,cnn_1d,2.7699358767876063,-3.402374366896929
+piecewise_125,FD001,all_21,lstm,lightgbm,10.438868773432446,-1.1936603199558782
