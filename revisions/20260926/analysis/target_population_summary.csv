@@ -1,0 +1,7 @@
+truth,population,contexts,difference_min,difference_max,raw_trained_lower_rmse,capped_trained_lower_rmse
+capped125,endpoint,24,8.276487135589491,28.333766778651537,0,24
+capped125,equal_engine_windows,24,11.812265935429554,45.82284796974386,0,24
+capped125,pooled_windows,24,11.026002394365477,49.37981311298813,0,24
+raw,endpoint,24,4.570492294439408,14.848475578538487,0,24
+raw,equal_engine_windows,24,-22.24492183357959,-3.097217037484384,24,0
+raw,pooled_windows,24,-33.91907802220008,-5.257502143738435,24,0

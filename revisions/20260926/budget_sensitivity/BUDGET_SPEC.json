@@ -1,0 +1,182 @@
+{
+  "recorded_at": "2026-09-26T14:21:23.420822+00:00",
+  "status": "frozen_before_additional_budget_results",
+  "purpose": "Bounded training-budget sensitivity, not an assertion of global convergence or a new independent test population.",
+  "selection": "All cap_with_recent_best flags in the completed 96-fit training-quality table; no selection by test performance.",
+  "historical_test_results_previously_known": true,
+  "new_fits": 9,
+  "neural_max_epochs": 450,
+  "tree_max_iterations": 4500,
+  "held_fixed": [
+    "architecture",
+    "input sensors",
+    "training target and numerical scale",
+    "engine split",
+    "initialization",
+    "optimizer/learning rate schedule",
+    "validation objective",
+    "early stopping patience",
+    "preprocessing",
+    "official test data"
+  ],
+  "restart_reason": "Optimizer states were not retained for the original neural fit. Restarting from the same initialization avoids an optimizer-reset confound.",
+  "prefix_check": "Reproduce the original validation trajectory and all three original prediction tables at the original selected checkpoint/iteration.",
+  "selection_of_extended_checkpoint": "Lowest validation RMSE; official test predictions do not select an iteration or budget.",
+  "analysis": [
+    "Six truth/population scores for each extended fit",
+    "Paired engine uncertainty for new-minus-original endpoint errors",
+    "Replace only flagged fits in a sensitivity view of the 96-cell grid",
+    "Recompute all target/population contrasts and metric winners",
+    "Retain and report any flags at the new cap"
+  ],
+  "primary_grid_policy": "Keep the original 96-fit grid and frozen specification unchanged; report this extra arm separately.",
+  "source_quality_sha256": "0306f2164d0bcf00c385289b0a2b19a7ff534fc112fc2b4c9cf5506728737d70",
+  "source_training_script_sha256": "d466b9a2d65287e540844c664ace76a4ef85cce8dfd2d017797931561770b2a7",
+  "source_spec_sha256": "8f4c334b8fefe2e79591f23a3b7b7a7487b73e207093e5f990048fa56c8532c4",
+  "controls": [
+    {
+      "run_id": "core__fd002__s137__lightgbm__i11__piecewise_125__common_14__scale125",
+      "model": "lightgbm",
+      "source_meta_sha256": "b2a644e219bc25c7970cecdb4daae580a3f4ab0cc785b6f55258180740007395",
+      "source_curve_sha256": "250cdf4ad65599037015951ce40e78e655d5d3414df394c530aea5be4fcbebb6",
+      "cell": {
+        "subset": "FD002",
+        "split_seed": 137,
+        "model": "lightgbm",
+        "init_seed": 11,
+        "target": "piecewise_125",
+        "sensors": "common_14",
+        "arm": "core",
+        "target_scale": 125.0
+      }
+    },
+    {
+      "run_id": "core__fd003__s137__lightgbm__i11__piecewise_125__common_14__scale125",
+      "model": "lightgbm",
+      "source_meta_sha256": "1f9c65520e33dc50d760043754d2793c5ad5f7b2991acb192997f7745dc55b1a",
+      "source_curve_sha256": "49abe3083c0d030a0f50448e06cb0ece61482414e6b62648f7c1f49594756782",
+      "cell": {
+        "subset": "FD003",
+        "split_seed": 137,
+        "model": "lightgbm",
+        "init_seed": 11,
+        "target": "piecewise_125",
+        "sensors": "common_14",
+        "arm": "core",
+        "target_scale": 125.0
+      }
+    },
+    {
+      "run_id": "core__fd004__s137__lightgbm__i11__piecewise_125__common_14__scale125",
+      "model": "lightgbm",
+      "source_meta_sha256": "4e269a6356f2def96523cdbc3c2fe026622a283cc2f514dc5cf174c94a188413",
+      "source_curve_sha256": "ef62ae5ef635ffa62ee1c3bd2bdbb0ddb3e3225b46fc18ce4923ca2b5c875451",
+      "cell": {
+        "subset": "FD004",
+        "split_seed": 137,
+        "model": "lightgbm",
+        "init_seed": 11,
+        "target": "piecewise_125",
+        "sensors": "common_14",
+        "arm": "core",
+        "target_scale": 125.0
+      }
+    },
+    {
+      "run_id": "core__fd004__s271__lightgbm__i11__piecewise_125__common_14__scale125",
+      "model": "lightgbm",
+      "source_meta_sha256": "adb9e318dbbf424c507d00812101bd9be09a0ef42322c7108b6691533b2720c2",
+      "source_curve_sha256": "0ed79c126bcb57dfd0cd851b25392d6c61517a058ec9e71dc61393ede936e7fc",
+      "cell": {
+        "subset": "FD004",
+        "split_seed": 271,
+        "model": "lightgbm",
+        "init_seed": 11,
+        "target": "piecewise_125",
+        "sensors": "common_14",
+        "arm": "core",
+        "target_scale": 125.0
+      }
+    },
+    {
+      "run_id": "core__fd004__s42__lstm__i11__piecewise_125__common_14__scale125",
+      "model": "lstm",
+      "source_meta_sha256": "94dbb38ce03cff37e3ed14913868f9817ba96fd0b79d9c0d05944df78c862b9c",
+      "source_curve_sha256": "2b89f622aa6c01d158f7af32606a783d9a6f419d532ddc1ab4c136af5cd88aae",
+      "cell": {
+        "subset": "FD004",
+        "split_seed": 42,
+        "model": "lstm",
+        "init_seed": 11,
+        "target": "piecewise_125",
+        "sensors": "common_14",
+        "arm": "core",
+        "target_scale": 125.0
+      }
+    },
+    {
+      "run_id": "factor__fd004__s137__lightgbm__i11__linear_uncapped__common_14__scale125",
+      "model": "lightgbm",
+      "source_meta_sha256": "051521287ceff195882358d52a9f73d0ac522e1e5d9046e89c61d38a5f83e8fc",
+      "source_curve_sha256": "1d358506593e03e6a988874e3f915fed1771cb41bafb3147a750df0b016088e4",
+      "cell": {
+        "subset": "FD004",
+        "split_seed": 137,
+        "model": "lightgbm",
+        "init_seed": 11,
+        "target": "linear_uncapped",
+        "sensors": "common_14",
+        "arm": "factor",
+        "target_scale": 125.0
+      }
+    },
+    {
+      "run_id": "factor__fd004__s271__lightgbm__i11__piecewise_125__all_21__scale125",
+      "model": "lightgbm",
+      "source_meta_sha256": "f9df8cd811540cf059b4f3c6121229f276d22d874b212825174eec146728837e",
+      "source_curve_sha256": "ea7901836b1ffeec65e547aac43934c2827827fea597c074b73044193d610704",
+      "cell": {
+        "subset": "FD004",
+        "split_seed": 271,
+        "model": "lightgbm",
+        "init_seed": 11,
+        "target": "piecewise_125",
+        "sensors": "all_21",
+        "arm": "factor",
+        "target_scale": 125.0
+      }
+    },
+    {
+      "run_id": "factor__fd004__s42__lightgbm__i11__linear_uncapped__common_14__scale125",
+      "model": "lightgbm",
+      "source_meta_sha256": "3362a025d7409901a6df4b356a9c8eed2e2df74eb22125b7096e7fdee33e785b",
+      "source_curve_sha256": "b38225ec33d39e1313fb65b8c52b95d8bc7e9ca48ff4a4225fdcdf7c2669a53e",
+      "cell": {
+        "subset": "FD004",
+        "split_seed": 42,
+        "model": "lightgbm",
+        "init_seed": 11,
+        "target": "linear_uncapped",
+        "sensors": "common_14",
+        "arm": "factor",
+        "target_scale": 125.0
+      }
+    },
+    {
+      "run_id": "factor__fd004__s42__lightgbm__i11__piecewise_125__all_21__scale125",
+      "model": "lightgbm",
+      "source_meta_sha256": "414072574600f45ae39a61725a164f1c775bcdcaaeecd84b00999243ffd94108",
+      "source_curve_sha256": "c8ab352a948865874fe4d8e0fc8af59d6c80a88ed86680e1a30e17365ab8b06e",
+      "cell": {
+        "subset": "FD004",
+        "split_seed": 42,
+        "model": "lightgbm",
+        "init_seed": 11,
+        "target": "piecewise_125",
+        "sensors": "all_21",
+        "arm": "factor",
+        "target_scale": 125.0
+      }
+    }
+  ]
+}

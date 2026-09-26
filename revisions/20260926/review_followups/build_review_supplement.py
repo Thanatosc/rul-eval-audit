@@ -1,0 +1,226 @@
+"""Create S5 and its sensor-response plot from verified complete follow-up data."""
+import hashlib
+import json
+from pathlib import Path
+import numpy as np
+import pandas as pd
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+
+HERE=Path(__file__).resolve().parent
+BASE=HERE.parent
+OUT=HERE/'analysis'
+LABELS={'lstm':'LSTM','cnn_1d':'1D CNN','lightgbm':'LightGBM'}
+
+
+def table(headers,rows):
+    return '| '+' | '.join(headers)+' |\n| '+' | '.join(['---']*len(headers))+' |\n'+'\n'.join('| '+' | '.join(str(v) for v in row)+' |' for row in rows)
+
+
+def main():
+    verified=json.loads((HERE/'REVIEW_CHECK_VERIFICATION.json').read_text())
+    assert verified['status']=='passed'
+    summary=json.loads((OUT/'REVIEW_CHECK_SUMMARY.json').read_text())
+    scores=pd.read_csv(OUT/'paired_sensitivity.csv')
+    latency=pd.read_csv(OUT/'latency_summary.csv')
+    displacement=pd.read_csv(OUT/'endpoint_displacement_summary.csv')
+    primary=scores[(scores.truth=='capped125')&(scores.population=='endpoint')]
+    figures=HERE/'figures'; figures.mkdir(exist_ok=True)
+    plt.rcParams.update({'font.family':'DejaVu Sans','font.size':10,'axes.spines.top':False,'axes.spines.right':False})
+    fig,axes=plt.subplots(1,2,figsize=(9.4,4.2),layout='constrained')
+    for ax,subset in zip(axes,('FD001','FD004')):
+        for model,color in [('lstm','#2374ab'),('cnn_1d','#26816d'),('lightgbm','#bd5836')]:
+            group=primary[(primary.subset==subset)&(primary.model==model)&primary.kind.isin(['clean','gaussian'])].sort_values('amplitude')
+            ax.errorbar(100*group.amplitude,group.rmse,
+                yerr=np.vstack([group.rmse-group.rmse_ci_lower,group.rmse_ci_upper-group.rmse]),
+                marker='o',capsize=3,lw=1.4,color=color,label=LABELS[model])
+        ax.set(title=subset,xlabel='Noise standard deviation (% of training sensor range)',ylabel='Endpoint RMSE (cycles)')
+        ax.set_xticks([0,1,3,5]); ax.grid(axis='y',alpha=.2)
+    axes[0].legend(frameon=False,loc='upper left')
+    for extension in ('png','pdf'):
+        fig.savefig(figures/f'Figure_S5_sensor_noise.{extension}',dpi=300,bbox_inches='tight')
+    plt.close(fig)
+    (figures/'FIGURE_SOURCE.json').write_text(json.dumps({'source':'review_followups/analysis/paired_sensitivity.csv',
+        'sha256':hashlib.sha256((OUT/'paired_sensitivity.csv').read_bytes()).hexdigest(),
+        'selection':'All six fixed predictors; clean and all three Gaussian amplitudes; capped-truth endpoints; no omitted model.'},indent=2)+'\n',encoding='utf-8')
+    error_rows=[]
+    for r in primary.itertuples():
+        condition='clean' if r.kind=='clean' else f'{100*r.amplitude:g}% '+('Gaussian SD' if r.kind=='gaussian' else 'engine bias')
+        error_rows.append([r.subset,LABELS[r.model],condition,f'{r.rmse:.3f}',
+            f'{r.rmse_difference:+.3f} [{r.rmse_difference_ci_lower:+.3f}, {r.rmse_difference_ci_upper:+.3f}]'])
+    latency_rows=[]
+    for r in latency.itertuples():
+        size=f'{int(r.trees)} trees' if r.model=='lightgbm' else f'{int(r.parameters):,} parameters'
+        latency_rows.append([r.subset,LABELS[r.model],'CPU, 1 thread' if r.model=='lightgbm' else 'GPU',size,
+            r.batch,f'{r.median_batch_ms:.4f}',f'{r.p95_batch_ms:.4f}',f'{r.predictions_per_second_at_median:,.0f}'])
+    attribution=displacement[(displacement.kind=='gaussian')&(displacement.amplitude==.01)]
+    attribution_rows=[[r.subset,LABELS[r.model],f'{r.mean_prediction_displacement:+.3f}',
+        f'{r.rms_prediction_displacement:.3f}',f'{r.prediction_displacement_mse:.3f}',
+        f'{r.error_cross_term:+.3f}',f'{r.endpoint_mse_increase:+.3f}'] for r in attribution.itertuples()]
+    doc=f'''# Supplement S5. Sensor perturbations and inference cost
+
+## S5.1 Scope and fixed controls
+
+These checks address the remaining request for sensor-noise sensitivity and
+computational cost. Six already fitted predictors are assessed: LSTM, 1D CNN
+and LightGBM on FD001 and FD004, partition seed 42, initialization seed 11,
+capped training targets and 14 sensors. The FD004 LSTM uses its budget-extended
+checkpoint from S4; the other five use their primary-grid checkpoints. Selection
+was by these fixed reference settings, not by their perturbed test errors.
+
+The specification was frozen in `review_followups/REVIEW_CHECK_SPEC.json` before
+the additional results. No models were trained. The archive therefore still has
+107 fits (96 primary, two diagnostics, nine budget checks), plus 72 new perturbed
+test-prediction tables. The clean test predictions were reproduced exactly before
+applying perturbations. This remains an exploratory, simulated-benchmark check.
+
+## S5.2 Perturbation construction and analysis
+
+For Gaussian noise, each unique test sensor observation receives an independent
+zero-mean draw with standard deviation 1%, 3% or 5% of that sensor's training-only
+range. Equivalently, standard deviations are 0.01, 0.03 or 0.05 after the original
+training-only MinMax transform. A separate bias condition shifts each sensor by
+plus or minus 3% of its training range, with the sign sampled independently for
+each engine and sensor and held fixed through that trajectory. All selected
+training sensor ranges were positive. Transformed values are not clipped.
+
+Corruption seeds are 101, 211 and 307. Within each subset and seed, all three
+models receive exactly the same perturbed observations. Gaussian amplitudes
+share one standard-normal draw. Perturbations are applied before windowing,
+so overlapping windows reuse the same noisy observation. For short engines,
+left padding repeats the corrupted first observation. Weights, training and
+calibration data, engine split, labels, window length/stride and scaler are fixed.
+
+For each configuration, squared-error and NASA-loss contributions are averaged
+over the three corruption realizations within engine before aggregation. The
+5,000 paired bootstrap replicates then resample complete test engines, using
+seed 20260926. Corruption draws are not extra engine samples or training
+replications. Intervals condition on the selected fits and these three draws;
+they do not quantify general uncertainty about real sensor-noise distributions.
+All six scoring truth/population combinations are retained in the data tables.
+
+The amplitudes are controlled stress levels, not estimates of field instrument
+accuracy. Global training ranges can have different physical meanings and
+within-condition signal-to-noise ratios across sensors and subsets. A small
+percentage of range is not necessarily a small perturbation relative to a
+degradation signal. Correlated noise, transient faults, time-varying drift,
+noise-aware training and field-calibrated corruption models were not studied.
+
+## S5.3 Endpoint errors and winning models
+
+![](review_followups/figures/Figure_S5_sensor_noise.png)
+
+**Figure S5.** Gaussian sensor perturbations under the fixed predictors. Scores
+use common capped-RUL truth at official endpoints. Error bars are conditional
+test-engine 95% percentile intervals after averaging losses over three
+corruption realizations. The x-axis is a fraction of training sensor range,
+not an observed physical noise level. The table below also includes the bias
+condition. All models and prescribed amplitudes are shown.
+
+On FD001, LSTM remains the lowest-RMSE model in every condition. On FD004, the
+clean-data winner is LightGBM (17.706 cycles). At 1% Gaussian noise, its RMSE is
+47.063, compared with 21.262 for LSTM and 25.423 for CNN. At 3% and 5% Gaussian
+noise, CNN has the lowest RMSE; at 3% engine bias, LSTM has the lowest RMSE.
+The RMSE winner changes in 4/8 perturbed subset/condition contexts and the
+NASA-loss winner in 6/8. These are eight dependent descriptive contexts, not
+eight independent trials or a general ranking of architectures.
+
+**Table S5.1. Common capped-truth endpoint errors.** Changes are perturbed minus
+clean RMSE; intervals use paired engines. The clean LSTM entry on FD004 is the
+extended-checkpoint value and differs from the original primary-grid entry.
+
+{table(['Subset','Model','Condition','RMSE','Change [95% interval]'],error_rows)}
+
+## S5.4 Prediction-displacement accounting
+
+After inspecting the completed checks, we examined the large error changes using
+an exact endpoint identity. If e is clean prediction error and d is the change
+in prediction after corruption, then the MSE change is
+$2\\,\\mathrm{{mean}}(ed)+\\mathrm{{mean}}(d^2)$.
+The averages retain the same engine and corruption-realization weights as S5.3.
+
+Under 1% Gaussian noise on FD004, the tree's mean prediction displacement is
+−32.898 cycles and its root mean squared displacement is 44.968 cycles. The
+squared-displacement contribution is 2,022.116 cycle-squared units, partly offset
+by a −120.657 cross term, giving a 1,901.459 increase in MSE. Thus the large RMSE
+change reflects substantial downward prediction displacement; it is not caused
+by a change in scoring labels or engine weights. LSTM and CNN displacements are
+smaller in this condition.
+
+This is post hoc accounting of the fitted response. It does not isolate tree
+split mechanisms, hidden representations, physical failure mechanisms or the
+cause of any architecture's sensitivity.
+
+**Table S5.2. Prediction displacement at 1% Gaussian noise.** MSE terms have
+cycle-squared units; displacement summaries are in cycles. Full amplitudes and
+realizations are supplied as CSV files.
+
+{table(['Subset','Model','Mean displacement','RMS displacement','Squared-displacement term','Cross term','MSE increase'],attribution_rows)}
+
+## S5.5 Complexity and measured inference cost
+
+For a window of length L, sensor dimension D and hidden/channel size H or C,
+the principal multiply-accumulate terms scale as $O(LH(D+H))$ for the single-layer
+LSTM and $O(LDCk_1+LC^2k_2)$ for the two convolutional layers.
+Here L=30, D=14, H=C=64, k1=5 and k2=3. The neural models
+contain 20,545 and 16,961 trainable parameters, respectively. A tree ensemble
+requires O(T h) threshold decisions per prediction for T trees and typical
+traversed depth h; the two selected ensembles contain 948 and 831 trees. These
+are implementation counts and order-of-growth descriptions, not measured FLOPs.
+
+Latency measures warm forward calls using the first 1 or 64 retained test windows
+as fixed batches, after ten warmups,
+with 50 measured calls per setting (600 measured calls in total). Neural models
+use the RTX 4060 Laptop GPU and tree models one CPU thread. Inputs are already on
+the selected device. CUDA is synchronized around each timed call. Loading,
+preprocessing, data transfer and final CPU conversion are excluded. The p95 is
+an empirical percentile of repeated calls on the same batch, not a percentile
+across engine workloads or a model-performance confidence interval.
+
+CPU and GPU implementations have different execution paths. These observations
+do not isolate architectural efficiency, establish real-time scheduling bounds,
+or measure end-to-end deployed latency. Checkpoint byte sizes and all 600 raw
+timing observations are included. Training costs remain in Supplement S2.
+
+{table(['Subset','Model','Device','Size','Batch','Median ms/batch','p95 ms/batch','Predictions/s at median'],latency_rows)}
+
+## S5.6 Verification and reproduction
+
+Independent replay reconstructed every corruption and reloaded all six models.
+All 72 perturbed prediction tables ({verified['perturbed_prediction_rows']:,} rows)
+were reproduced with maximum absolute difference {verified['maximum_prediction_replay_error']:.1f}.
+The check independently recomputed 468 realization scores, 180 summary scores
+and 288 paired intervals, and verified overlap consistency and positive training
+sensor ranges. `REVIEW_CHECK_VERIFICATION.json` supplies the numerical report.
+
+A metadata-write correction and excluded incomplete timing series are documented
+in `EXECUTION_CORRECTION.json`. The frozen design was unchanged, and the first
+partial prediction is byte-identical to its completed counterpart.
+
+From the shared revision directory, these commands use supplied predictions:
+
+    python -X utf8 review_followups/analyze_review_checks.py
+    python -X utf8 review_followups/explain_sensor_sensitivity.py
+    python -X utf8 review_followups/build_review_supplement.py
+
+The following additionally require official NASA inputs and the recorded model
+environment; the first replays all corrupted predictions, while the second
+reuses completed checks or executes them when absent:
+
+    python -X utf8 review_followups/verify_review_checks.py
+    python -X utf8 review_followups/run_review_checks.py
+
+The analysis directory contains `all_realization_scores.csv`,
+`paired_sensitivity.csv`, `model_winners.csv`, `model_complexity.csv`,
+`latency_samples.csv`, `latency_summary.csv`, two endpoint-displacement CSVs and
+the summary/identity JSON records. `model_checks/` supplies the 72 prediction
+tables, raw timings and provenance; model weights are referenced from the
+existing primary/budget run folders rather than copied as new fits.
+'''
+    (BASE/'supplements/SUPPLEMENT_S5.md').write_text(doc,encoding='utf-8')
+    print('Wrote S5 and the verified sensor-noise figure.',flush=True)
+
+
+if __name__=='__main__':
+    main()

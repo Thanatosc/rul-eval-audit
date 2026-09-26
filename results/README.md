@@ -1,5 +1,12 @@
 # Results
 
+This document describes the **historical v0.1.2 software / v1.0.2 dataset**.
+For the corrective v0.2.0 / v1.1.0 study, use the
+[current reproduction instructions](../README.md#reproduce-the-corrective-analysis) and `revisions/20260926/`.
+The historical Kill Test decision and statistical interpretations below are
+retained for provenance and are superseded where explained in the current README.
+
+
 Generated artifacts belong under:
 
 - `runs/`: immutable per-run metrics and provenance

@@ -1,0 +1,72 @@
+[
+  {
+    "source": "rul-eval-audit/papercorpus/PHASE2_SEARCH_STRATEGY.md",
+    "copy": "supplements/literature/PHASE2_SEARCH_STRATEGY.md",
+    "sha256": "91915b622fc4dfe3c5972f57129ad81182d92150e22dbdc350d5910530a61402"
+  },
+  {
+    "source": "rul-eval-audit/papercorpus/SEARCH_LOG.md",
+    "copy": "supplements/literature/SEARCH_LOG.md",
+    "sha256": "a61ce5b3236db02cb05c0b7b825c341034338424dbabea011798aec096b7500b"
+  },
+  {
+    "source": "rul-eval-audit/papercorpus/candidate_corpus.csv",
+    "copy": "supplements/literature/candidate_corpus.csv",
+    "sha256": "76bed0e8393ea5904c4aecc890980aa0c216bd0ea65925551cc52a62f9b8103f"
+  },
+  {
+    "source": "rul-eval-audit/papercorpus/PRISMA_COUNTS.csv",
+    "copy": "supplements/literature/PRISMA_COUNTS.csv",
+    "sha256": "9eb8293bdb4332c3320bbc958c5c59b68131f641f224b9ab7fbbb3836fc051d6"
+  },
+  {
+    "source": "rul-eval-audit/papercorpus/FULLTEXT_MANIFEST.csv",
+    "copy": "supplements/literature/FULLTEXT_MANIFEST.csv",
+    "sha256": "c7fa6bcdcc3aa4d9f281b798c8fe1e81d0c073d714e73da44755cf3c4afff7cf"
+  },
+  {
+    "source": "rul-eval-audit/papercorpus/protocol_coding.csv",
+    "copy": "supplements/literature/protocol_coding.csv",
+    "sha256": "b0519dc0df87984db0f71dd9e1eddb281a325f8983a7d021ff1ab25f8e6b3c08"
+  },
+  {
+    "source": "rul-eval-audit/papercorpus/PHASE3_ANALYSIS_CODEBOOK.csv",
+    "copy": "supplements/literature/PHASE3_ANALYSIS_CODEBOOK.csv",
+    "sha256": "c490a9b53f31fa5304c8d4d71b47ac349358f972431196d09e1d685a17319a13"
+  },
+  {
+    "source": "rul-eval-audit/papercorpus/protocol_coding_uq_v2.csv",
+    "copy": "supplements/literature/protocol_coding_uq_v2.csv",
+    "sha256": "8c729b7572d8a5eb5614b2dfc686430ef0e99acdff765465dbdacff685ac05cb"
+  },
+  {
+    "source": "rul-eval-audit/papercorpus/SOURCE_VERIFICATION_REPORT.md",
+    "copy": "supplements/literature/SOURCE_VERIFICATION_REPORT.md",
+    "sha256": "557c56999ddedaf9e22e0d34253dded276d0a96fca05d1a10193ca1739a77f32"
+  },
+  {
+    "source": "rul-eval-audit/papercorpus/PHASE3_EVIDENCE_MATRIX.csv",
+    "copy": "supplements/literature/PHASE3_EVIDENCE_MATRIX.csv",
+    "sha256": "9f980375f1fd3f1fd1a19298a90f9eef076fcec77682c6f4096fe707091d661c"
+  },
+  {
+    "source": "rul-eval-audit/papercorpus/PHASE3_UQ_CODEBOOK.csv",
+    "copy": "supplements/literature/PHASE3_UQ_CODEBOOK.csv",
+    "sha256": "38063b76b1e0b8afbb5516d65fbcb1c100c2dd285e70862b6c5b77cb4e6dd9f4"
+  },
+  {
+    "source": "rul-eval-audit/papercorpus/PHASE3_UQ_EVIDENCE_MATRIX.csv",
+    "copy": "supplements/literature/PHASE3_UQ_EVIDENCE_MATRIX.csv",
+    "sha256": "91e61fa929154762488203ac764f7bdd039cc16ecf19afd85d5a531d4a21167b"
+  },
+  {
+    "source": "rul-eval-audit/papercorpus/PHASE3_PROTOCOL_PRACTICE_COUNTS.csv",
+    "copy": "supplements/literature/PHASE3_PROTOCOL_PRACTICE_COUNTS.csv",
+    "sha256": "db3b14d136e0cec56c0fa64986f1cd2dde6dce10c211eb2b7a471e4e645693ec"
+  },
+  {
+    "source": "rul-eval-audit/papercorpus/PHASE3_UQ_PRACTICE_COUNTS.csv",
+    "copy": "supplements/literature/PHASE3_UQ_PRACTICE_COUNTS.csv",
+    "sha256": "4bc00beec676869f44a538a91c899bb53477a7268a040d76f54b19a06080bb62"
+  }
+]

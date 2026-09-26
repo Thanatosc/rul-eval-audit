@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "model": "lstm",
+      "checkpoint_prediction_max_difference": 0.000518500804901123,
+      "rows": 64
+    },
+    {
+      "model": "cnn_1d",
+      "checkpoint_prediction_max_difference": 3.045797348022461e-05,
+      "rows": 64
+    },
+    {
+      "model": "lightgbm",
+      "checkpoint_prediction_max_difference": 0.0,
+      "rows": 64
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+subset,model,split_seed,init_seed,source_directory,checkpoint_bytes,clean_prediction_max_abs_error,parameters,features,trees
+FD001,lstm,42,11,runs/core__fd001__s42__lstm__i11__piecewise_125__common_14__scale125,84733,0.0,20545.0,14,
+FD001,cnn_1d,42,11,runs/core__fd001__s42__cnn_1d__i11__piecewise_125__common_14__scale125,70397,0.0,16961.0,14,
+FD001,lightgbm,42,11,runs/core__fd001__s42__lightgbm__i11__piecewise_125__common_14__scale125,2733410,0.0,,420,948.0
+FD004,lstm,42,11,budget_sensitivity/runs/core__fd004__s42__lstm__i11__piecewise_125__common_14__scale125,84733,0.0,20545.0,14,
+FD004,cnn_1d,42,11,runs/core__fd004__s42__cnn_1d__i11__piecewise_125__common_14__scale125,70397,0.0,16961.0,14,
+FD004,lightgbm,42,11,runs/core__fd004__s42__lightgbm__i11__piecewise_125__common_14__scale125,2408095,0.0,,420,831.0

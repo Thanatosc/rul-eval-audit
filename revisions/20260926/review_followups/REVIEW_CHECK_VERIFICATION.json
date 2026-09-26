@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "fixed_models_reloaded": 6,
+  "perturbed_tables_replayed": 72,
+  "perturbed_prediction_rows": 1594368,
+  "maximum_prediction_replay_error": 0.0,
+  "realization_scores_independently_recomputed": 468,
+  "summary_scores_independently_recomputed": 180,
+  "paired_intervals_independently_recomputed": 288,
+  "maximum_normalized_score_error": 2.515681091951123e-16,
+  "maximum_normalized_interval_error": 4.546363285840016e-13,
+  "all_sensor_training_ranges_positive": true,
+  "overlapping_observation_consistency_checked": true,
+  "spec_sha256": "2ed8c02d7301e19b2aa21025f1331800d2c6a32d3b86eb2d7ddad7d312397b82",
+  "analysis_script_sha256": "8648f3c6023a6a3cd8f4c16c517ccb8cae9cc0871b292d4e357e7ebff77f0013",
+  "verification_script_sha256": "49ce56f205f50341c40feb9b049b3d746cce88582a24016b66ff4bc0f78c094d",
+  "scope": "Computational replay and aggregation; not a validation of the chosen noise amplitudes against field measurements."
+}

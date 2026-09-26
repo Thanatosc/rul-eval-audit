@@ -1,0 +1,31 @@
+dimension,category,n,denominator,percent,paper_ids,interpretive_limit
+RUL cap,cap_125,12,19,63.2,C02;C03;C05;C07;C08;C09;C12;C13;C14;C15;C16;C17,"A documented cap describes label construction, not its causal effect on scores."
+RUL cap,other_explicit,4,19,21.1,C01;C04;C10;C11,"A documented cap describes label construction, not its causal effect on scores."
+RUL cap,unreported,3,19,15.8,C06;C18;C21,"A documented cap describes label construction, not its causal effect on scores."
+Normalization fit scope,train_or_source_only,6,19,31.6,C06;C10;C13;C14;C15;C18,Not confirmed means not reproducible from the report; it does not prove leakage occurred.
+Normalization fit scope,not_confirmed,13,19,68.4,C01;C02;C03;C04;C05;C07;C08;C09;C11;C12;C16;C17;C21,Not confirmed means not reproducible from the report; it does not prove leakage occurred.
+Test prediction denominator,endpoint_per_engine,9,19,47.4,C01;C02;C03;C04;C05;C06;C08;C09;C15,Endpoint and all-window metrics use different observational denominators.
+Test prediction denominator,all_window_or_chunk,2,19,10.5,C07;C14,Endpoint and all-window metrics use different observational denominators.
+Test prediction denominator,unclear_or_nonindependent,8,19,42.1,C10;C11;C12;C13;C16;C17;C18;C21,Endpoint and all-window metrics use different observational denominators.
+Validation and test boundary,separate_non_test,5,19,26.3,C03;C12;C13;C14;C15,The category records disclosed practice and cannot recover undocumented author behavior.
+Validation and test boundary,test_monitored_or_tuned,3,19,15.8,C06;C09;C11,The category records disclosed practice and cannot recover undocumented author behavior.
+Validation and test boundary,transductive_no_independent_test,2,19,10.5,C18;C21,The category records disclosed practice and cannot recover undocumented author behavior.
+Validation and test boundary,unclear,9,19,47.4,C01;C02;C04;C05;C07;C08;C10;C16;C17,The category records disclosed practice and cannot recover undocumented author behavior.
+Seed reporting,exact_values,3,19,15.8,C12;C13;C14,A seed declaration improves traceability but does not by itself establish robustness.
+Seed reporting,count_only,1,19,5.3,C15,A seed declaration improves traceability but does not by itself establish robustness.
+Seed reporting,not_reported,15,19,78.9,C01;C02;C03;C04;C05;C06;C07;C08;C09;C10;C11;C16;C17;C18;C21,A seed declaration improves traceability but does not by itself establish robustness.
+Independent repetition count,yes,9,19,47.4,C03;C04;C05;C07;C12;C13;C14;C15;C16,Stochastic forward passes and hyperparameter candidates are not counted as repetitions.
+Independent repetition count,no,10,19,52.6,C01;C02;C06;C08;C09;C10;C11;C17;C18;C21,Stochastic forward passes and hyperparameter candidates are not counted as repetitions.
+Run-level dispersion,usable,5,19,26.3,C03;C12;C13;C14;C15,Predictive intervals are distinct from variation across independent training runs.
+Run-level dispersion,partial_unclear,1,19,5.3,C18,Predictive intervals are distinct from variation across independent training runs.
+Run-level dispersion,absent,13,19,68.4,C01;C02;C04;C05;C06;C07;C08;C09;C10;C11;C16;C17;C21,Predictive intervals are distinct from variation across independent training runs.
+RMSE and NASA Score pair,yes,16,19,84.2,C01;C03;C04;C05;C06;C07;C08;C09;C10;C11;C12;C15;C16;C17;C18;C21,Dual metric reporting permits comparison but does not establish metric disagreement.
+RMSE and NASA Score pair,no,3,19,15.8,C02;C13;C14,Dual metric reporting permits comparison but does not establish metric disagreement.
+Code path,some_code_path,3,19,15.8,C08;C12;C21,A stated or located code path is not equivalent to exact end-to-end reproduction.
+Code path,none_or_nonreproducible,16,19,84.2,C01;C02;C03;C04;C05;C06;C07;C09;C10;C11;C13;C14;C15;C16;C17;C18,A stated or located code path is not equivalent to exact end-to-end reproduction.
+C-MAPSS subset coverage,yes,9,19,47.4,C01;C02;C03;C06;C07;C08;C09;C13;C17,Four-subset coverage broadens benchmark scope but not real-fleet external validity.
+C-MAPSS subset coverage,no,10,19,52.6,C04;C05;C10;C11;C12;C14;C15;C16;C18;C21,Four-subset coverage broadens benchmark scope but not real-fleet external validity.
+N-CMAPSS inclusion,yes,4,19,21.1,C16;C17;C18;C21,N-CMAPSS results use distinct data and are not pooled with C-MAPSS scores.
+N-CMAPSS inclusion,no,15,19,78.9,C01;C02;C03;C04;C05;C06;C07;C08;C09;C10;C11;C12;C13;C14;C15,N-CMAPSS results use distinct data and are not pooled with C-MAPSS scores.
+Source quality,B,2,19,10.5,C12;C15,"Quality grades measure fitness for protocol-audit claims, not model merit."
+Source quality,C,17,19,89.5,C01;C02;C03;C04;C05;C06;C07;C08;C09;C10;C11;C13;C14;C16;C17;C18;C21,"Quality grades measure fitness for protocol-audit claims, not model merit."

@@ -1,0 +1,191 @@
+[
+  {
+    "run_id": "core__fd002__s137__lightgbm__i11__piecewise_125__common_14__scale125",
+    "split": "val",
+    "rows": 6866,
+    "engines": 39,
+    "sha256": "e1981dd147e7ede9a9d7430b4c32004990244a7b2e6348d53029c4d7e0456ecf"
+  },
+  {
+    "run_id": "core__fd002__s137__lightgbm__i11__piecewise_125__common_14__scale125",
+    "split": "calib",
+    "rows": 6591,
+    "engines": 39,
+    "sha256": "8c69be97b0bffd8513abf2fd9d91c7121c69d59a59967b99a23350fbca1b4ecb"
+  },
+  {
+    "run_id": "core__fd002__s137__lightgbm__i11__piecewise_125__common_14__scale125",
+    "split": "test",
+    "rows": 26511,
+    "engines": 259,
+    "sha256": "b53b3b2fbd0b2ca27dfdc8ec2ee384c685d897b853c81ca252c6861fb9074415"
+  },
+  {
+    "run_id": "core__fd003__s137__lightgbm__i11__piecewise_125__common_14__scale125",
+    "split": "val",
+    "rows": 3437,
+    "engines": 15,
+    "sha256": "f912b3d8dfbaf5878bf563c455d91194aaa4f13a2a3dc9805b02c34f2d22c0bd"
+  },
+  {
+    "run_id": "core__fd003__s137__lightgbm__i11__piecewise_125__common_14__scale125",
+    "split": "calib",
+    "rows": 3078,
+    "engines": 15,
+    "sha256": "3d1d92e1b214258d180ce9710b316388fc0509756659945c2a0ecaab734f575c"
+  },
+  {
+    "run_id": "core__fd003__s137__lightgbm__i11__piecewise_125__common_14__scale125",
+    "split": "test",
+    "rows": 13696,
+    "engines": 100,
+    "sha256": "e593189496620d32fbba0b0aac36be2a8d1151300191da9f1a1734d1da67d149"
+  },
+  {
+    "run_id": "core__fd004__s137__lightgbm__i11__piecewise_125__common_14__scale125",
+    "split": "val",
+    "rows": 8187,
+    "engines": 38,
+    "sha256": "a051bb44b7f327b5741ba97411d92b6d09a39d013d78a1b2db492cd29495272c"
+  },
+  {
+    "run_id": "core__fd004__s137__lightgbm__i11__piecewise_125__common_14__scale125",
+    "split": "calib",
+    "rows": 8117,
+    "engines": 37,
+    "sha256": "b86850293be9215ac003d8e5ec562a395a6d961b4499633da1936b49d4699b17"
+  },
+  {
+    "run_id": "core__fd004__s137__lightgbm__i11__piecewise_125__common_14__scale125",
+    "split": "test",
+    "rows": 34092,
+    "engines": 248,
+    "sha256": "a86e24d2aeab80677aecfeaf686fef888f8cef5ad506d3a9591f75f7868d853d"
+  },
+  {
+    "run_id": "core__fd004__s271__lightgbm__i11__piecewise_125__common_14__scale125",
+    "split": "val",
+    "rows": 7406,
+    "engines": 38,
+    "sha256": "d3888d54fdff3315bea7ddb5041fde7004d1c328725f606ea5c9766e13aca5ac"
+  },
+  {
+    "run_id": "core__fd004__s271__lightgbm__i11__piecewise_125__common_14__scale125",
+    "split": "calib",
+    "rows": 8200,
+    "engines": 37,
+    "sha256": "45d42f5d6424f4090c8ce3f9b4da20d58f51f4162363ed91c7ffd462b1827b94"
+  },
+  {
+    "run_id": "core__fd004__s271__lightgbm__i11__piecewise_125__common_14__scale125",
+    "split": "test",
+    "rows": 34092,
+    "engines": 248,
+    "sha256": "47d2b942e632193f3380a615eac17a24937254f702618cd1c71167312575b9a4"
+  },
+  {
+    "run_id": "core__fd004__s42__lstm__i11__piecewise_125__common_14__scale125",
+    "split": "val",
+    "rows": 7701,
+    "engines": 38,
+    "sha256": "bb95ee6a118e5f6407a41355c80eaeff31713537b4e67542190c11bdf4c608b5"
+  },
+  {
+    "run_id": "core__fd004__s42__lstm__i11__piecewise_125__common_14__scale125",
+    "split": "calib",
+    "rows": 7662,
+    "engines": 37,
+    "sha256": "1c1da4bf86929594871335fc29895270574f6456ef514cb172f133839cf2807d"
+  },
+  {
+    "run_id": "core__fd004__s42__lstm__i11__piecewise_125__common_14__scale125",
+    "split": "test",
+    "rows": 34092,
+    "engines": 248,
+    "sha256": "cfd7d3b2d39a407df128dc71323f9b056e89debdbf62a54a273f0a5f0334cb6a"
+  },
+  {
+    "run_id": "factor__fd004__s137__lightgbm__i11__linear_uncapped__common_14__scale125",
+    "split": "val",
+    "rows": 8187,
+    "engines": 38,
+    "sha256": "a8dcc45a858e76ddbebeef9606aaa8fd636d20228e3cbdb9d52c77c6e5d80a23"
+  },
+  {
+    "run_id": "factor__fd004__s137__lightgbm__i11__linear_uncapped__common_14__scale125",
+    "split": "calib",
+    "rows": 8117,
+    "engines": 37,
+    "sha256": "0147e89933923164516f112e71c308274bad213df1a59442e15bbcaabd696046"
+  },
+  {
+    "run_id": "factor__fd004__s137__lightgbm__i11__linear_uncapped__common_14__scale125",
+    "split": "test",
+    "rows": 34092,
+    "engines": 248,
+    "sha256": "c6c4bce752c74481c1766cacc50dae9a67f81e58312bbcdc476eef871d288f67"
+  },
+  {
+    "run_id": "factor__fd004__s271__lightgbm__i11__piecewise_125__all_21__scale125",
+    "split": "val",
+    "rows": 7406,
+    "engines": 38,
+    "sha256": "f01b49eef384101315ce6f6c370d81f86a9b1b54ac7793031252a78908fd6571"
+  },
+  {
+    "run_id": "factor__fd004__s271__lightgbm__i11__piecewise_125__all_21__scale125",
+    "split": "calib",
+    "rows": 8200,
+    "engines": 37,
+    "sha256": "2c09f2915616abc7b1dba8dfbb5ce966526f57d2defaa49babbe684cea2344d3"
+  },
+  {
+    "run_id": "factor__fd004__s271__lightgbm__i11__piecewise_125__all_21__scale125",
+    "split": "test",
+    "rows": 34092,
+    "engines": 248,
+    "sha256": "c34f73241251b99db056b81c131176b23b38efdd2e5d7222a2ed49508f1e5219"
+  },
+  {
+    "run_id": "factor__fd004__s42__lightgbm__i11__linear_uncapped__common_14__scale125",
+    "split": "val",
+    "rows": 7701,
+    "engines": 38,
+    "sha256": "a900027c4dea21b59d2bfe93be9973f5e58488206f29907ffecce11252e8b9e5"
+  },
+  {
+    "run_id": "factor__fd004__s42__lightgbm__i11__linear_uncapped__common_14__scale125",
+    "split": "calib",
+    "rows": 7662,
+    "engines": 37,
+    "sha256": "040134416c4e59c0476fa450ca5e359c546ed6ac1877b1041ff6f2d7234bbd6c"
+  },
+  {
+    "run_id": "factor__fd004__s42__lightgbm__i11__linear_uncapped__common_14__scale125",
+    "split": "test",
+    "rows": 34092,
+    "engines": 248,
+    "sha256": "db742fbb2680f3a88ff5943f42213e23130bdcc868c0510ddbba21cb1183f85d"
+  },
+  {
+    "run_id": "factor__fd004__s42__lightgbm__i11__piecewise_125__all_21__scale125",
+    "split": "val",
+    "rows": 7701,
+    "engines": 38,
+    "sha256": "2064ede7be0344435fce74980f212e23b45cd458bed384732af3560ee8e6d2f1"
+  },
+  {
+    "run_id": "factor__fd004__s42__lightgbm__i11__piecewise_125__all_21__scale125",
+    "split": "calib",
+    "rows": 7662,
+    "engines": 37,
+    "sha256": "bc175dd87dc50ff92d48a4a5a60308025b02a8625ee7ee6244da097734ce868a"
+  },
+  {
+    "run_id": "factor__fd004__s42__lightgbm__i11__piecewise_125__all_21__scale125",
+    "split": "test",
+    "rows": 34092,
+    "engines": 248,
+    "sha256": "d0723fcb627b33e9b0fd46923a8808fce549c5c3b6722f9acc189bf44b9e0cc1"
+  }
+]

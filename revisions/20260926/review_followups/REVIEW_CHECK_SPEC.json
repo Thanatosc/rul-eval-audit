@@ -1,0 +1,169 @@
+{
+  "recorded_at": "2026-09-26T16:13:59.206035+00:00",
+  "status": "frozen_before_followup_results",
+  "purpose": "Address sensor-noise sensitivity and measured inference cost for representative fixed models.",
+  "models": [
+    {
+      "cell": {
+        "subset": "FD001",
+        "split_seed": 42,
+        "model": "lstm",
+        "init_seed": 11,
+        "target": "piecewise_125",
+        "sensors": "common_14",
+        "arm": "core",
+        "target_scale": 125.0
+      },
+      "source_directory": "runs/core__fd001__s42__lstm__i11__piecewise_125__common_14__scale125",
+      "source_meta_sha256": "93d702f136774962b32b6e40e303b75b99fd94568433c5f587233163275a30d9",
+      "model_sha256": "dc0d4cdb00aa03078d90a746164e29965e496b716461a534a77c9317c3a75dfa",
+      "clean_test_sha256": "9a80dc7c67369f4f1a57122a5e611f1f10a013e41679ffa454d81cc9625543d8"
+    },
+    {
+      "cell": {
+        "subset": "FD001",
+        "split_seed": 42,
+        "model": "cnn_1d",
+        "init_seed": 11,
+        "target": "piecewise_125",
+        "sensors": "common_14",
+        "arm": "core",
+        "target_scale": 125.0
+      },
+      "source_directory": "runs/core__fd001__s42__cnn_1d__i11__piecewise_125__common_14__scale125",
+      "source_meta_sha256": "bae9dc6d91d5c0ac4b844031014ad9bafed9b5c0d1e6cd7b28a9bd1630ed69bb",
+      "model_sha256": "5b4a95b3c11aa8601848337e143470b20e0bf1105aea7b6970b6ea5b58a86b4b",
+      "clean_test_sha256": "7575ce252fc99087852df9760c2ccc82f89fbcc385379781350a298a44d92cb3"
+    },
+    {
+      "cell": {
+        "subset": "FD001",
+        "split_seed": 42,
+        "model": "lightgbm",
+        "init_seed": 11,
+        "target": "piecewise_125",
+        "sensors": "common_14",
+        "arm": "core",
+        "target_scale": 125.0
+      },
+      "source_directory": "runs/core__fd001__s42__lightgbm__i11__piecewise_125__common_14__scale125",
+      "source_meta_sha256": "a7ffa7b86ed21d6b225f7e42ec9d61987e522df2613c343db4778b1955898b75",
+      "model_sha256": "03c56cea337876f1dea5d421636886236f3bfe8109e42e60f82598af3d295b4d",
+      "clean_test_sha256": "fc87674091eef2fab34cf2ebdce4d8c522ab540fa28c22186de6ccb81c8d6669"
+    },
+    {
+      "cell": {
+        "subset": "FD004",
+        "split_seed": 42,
+        "model": "lstm",
+        "init_seed": 11,
+        "target": "piecewise_125",
+        "sensors": "common_14",
+        "arm": "core",
+        "target_scale": 125.0
+      },
+      "source_directory": "budget_sensitivity/runs/core__fd004__s42__lstm__i11__piecewise_125__common_14__scale125",
+      "source_meta_sha256": "633290aab752bdb03fdc7866a1c8f13387ad6e58529f3453f1b66f04a5f3d45a",
+      "model_sha256": "bbe2e6fd69813e7bd09924f677adae348634d01a7b8f5b647f007eb1ae8e290e",
+      "clean_test_sha256": "cfd7d3b2d39a407df128dc71323f9b056e89debdbf62a54a273f0a5f0334cb6a"
+    },
+    {
+      "cell": {
+        "subset": "FD004",
+        "split_seed": 42,
+        "model": "cnn_1d",
+        "init_seed": 11,
+        "target": "piecewise_125",
+        "sensors": "common_14",
+        "arm": "core",
+        "target_scale": 125.0
+      },
+      "source_directory": "runs/core__fd004__s42__cnn_1d__i11__piecewise_125__common_14__scale125",
+      "source_meta_sha256": "a269bc409bbbe8f7b78c319e3b4c4e55a38092b487aa4d8657cf86cdf521b1f5",
+      "model_sha256": "34aa1ff37036c931f97eae11a9e04bb74c534262728d6ae04a771959db63aa2d",
+      "clean_test_sha256": "d883582d87826b6492cc763210302f981cef857b8b89c8548023939aeb54a12b"
+    },
+    {
+      "cell": {
+        "subset": "FD004",
+        "split_seed": 42,
+        "model": "lightgbm",
+        "init_seed": 11,
+        "target": "piecewise_125",
+        "sensors": "common_14",
+        "arm": "core",
+        "target_scale": 125.0
+      },
+      "source_directory": "runs/core__fd004__s42__lightgbm__i11__piecewise_125__common_14__scale125",
+      "source_meta_sha256": "66c2edfed5a16e689b60493b30de2b7e434595b09b4e38d5b6de75dc9d3b4285",
+      "model_sha256": "1af3143c609234f42b63aff4a2883a1e710dec08ba17d2c2bcd4b1ac5de68c7e",
+      "clean_test_sha256": "dda79950f3044e41fe212c6a497b4c528be2989e0cd7a20ce97754bb2a50fbd7"
+    }
+  ],
+  "new_fits": 0,
+  "representative_predictors": 6,
+  "selection": "FD001 and FD004 provide the simpler and multi-condition/multi-fault benchmark settings; partition 42, initialization 11, capped training and 14 sensors are fixed. Use the budget-extended checkpoint when that cell was flagged.",
+  "scenarios": [
+    {
+      "kind": "gaussian",
+      "amplitude": 0.01
+    },
+    {
+      "kind": "gaussian",
+      "amplitude": 0.03
+    },
+    {
+      "kind": "gaussian",
+      "amplitude": 0.05
+    },
+    {
+      "kind": "engine_bias",
+      "amplitude": 0.03
+    }
+  ],
+  "perturbation_seeds": [
+    101,
+    211,
+    307
+  ],
+  "perturbation_unit": "Unique sensor observations before window construction; an overlapping observation reuses the same corruption. Short-engine left padding duplicates the corrupted first observation.",
+  "scale": "Normalized units of the training-only MinMax scaler. Gaussian standard deviation or fixed absolute bias is the stated fraction of each training sensor range. No clipping.",
+  "engine_bias": "Independent random plus/minus signs per test engine and sensor, held constant across that engine trajectory.",
+  "pairing": "Within each subset and seed, use identical perturbations across all three predictors; reuse one Gaussian draw across noise amplitudes.",
+  "fixed": [
+    "model weights",
+    "training and validation data",
+    "calibration data",
+    "training/scoring targets",
+    "engine partition",
+    "window length and stride",
+    "input sensors",
+    "scaler"
+  ],
+  "timing": {
+    "batches": [
+      1,
+      64
+    ],
+    "warmup_calls": 10,
+    "measured_calls": 50,
+    "neural_device": "cuda:0",
+    "tree_threads": 1,
+    "scope": "Warm model forward calls; inputs already on device; exclude loading, preprocessing, host/device transfer and final CPU conversion; synchronize CUDA around timed calls."
+  },
+  "analysis": [
+    "All perturbation predictions and six truth/population scores",
+    "Paired engine errors averaged over three corruption realizations before bootstrap",
+    "Full model winners for the fixed configurations",
+    "Measured median/p95 batch latency and prediction throughput"
+  ],
+  "caveats": [
+    "Exploratory use of known benchmark data; no field-calibrated noise model.",
+    "Six fixed predictors, one partition and initialization; corruption seeds are not training replications.",
+    "No noise-aware retraining, target/architecture tuning, deployment guarantee or real maintenance-cost claim.",
+    "CPU and GPU timings describe these implementations and cannot isolate architecture efficiency."
+  ],
+  "training_source_sha256": "d466b9a2d65287e540844c664ace76a4ef85cce8dfd2d017797931561770b2a7",
+  "primary_spec_sha256": "8f4c334b8fefe2e79591f23a3b7b7a7487b73e207093e5f990048fa56c8532c4",
+  "budget_spec_sha256": "bb49b128823cf2ef39a2eaf75a2de59faa41ea9ff82b1f76dc6aad96978333fe"
+}

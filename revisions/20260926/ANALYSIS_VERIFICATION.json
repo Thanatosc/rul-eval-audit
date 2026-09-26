@@ -1,0 +1,16 @@
+{
+  "weighting_and_truth_cases": 6,
+  "diagnostics": [
+    {
+      "scale": 1.0,
+      "rmse": 43.51068885178133,
+      "engines": 259
+    },
+    {
+      "scale": 125.0,
+      "rmse": 17.197939890947197,
+      "engines": 259
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,5 @@
+{
+  "source": "review_followups/analysis/paired_sensitivity.csv",
+  "sha256": "18c077863800a18af537d3e2b41a81726611ac2b90e192eb1f059823bf353b97",
+  "selection": "All six fixed predictors; clean and all three Gaussian amplitudes; capped-truth endpoints; no omitted model."
+}

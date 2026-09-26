@@ -1,0 +1,56 @@
+{
+  "material_passport": {
+    "source": "Completed original 96-fit grid and separately frozen nine-fit budget extension",
+    "analysis_scope": "Exploratory benchmark sensitivity, no new external sample",
+    "integrity_verification": "BUDGET_VERIFICATION.json"
+  },
+  "verification_status": "VERIFIED",
+  "fallacy_types_checked": 11,
+  "checks": [
+    {
+      "type": "Simpson/aggregation reversal",
+      "assessment": "Endpoint/window and life-stage weighting shown separately; reversal is the measured finding."
+    },
+    {
+      "type": "Ecological inference",
+      "assessment": "No fleet or individual maintenance benefit inferred from aggregate benchmark scores."
+    },
+    {
+      "type": "Selection/Berkson",
+      "assessment": "All nine validation-cap flags included; inference limited to these configurations."
+    },
+    {
+      "type": "Collider adjustment",
+      "assessment": "No causal covariate adjustment; fixed budget controls with descriptive conditional inference."
+    },
+    {
+      "type": "Base rates",
+      "assessment": "Prediction populations and stage engine counts specified; no diagnostic PPV claim."
+    },
+    {
+      "type": "Regression to mean",
+      "assessment": "Controls selected by validation-cap flag, not worst test result; no universal improvement claim."
+    },
+    {
+      "type": "Survivorship",
+      "assessment": "Nine of nine planned fits completed and retained, including unchanged or worse test scores."
+    },
+    {
+      "type": "Look elsewhere",
+      "assessment": "All 54 new scores and 144 target/ranking contexts retained; no significance selection."
+    },
+    {
+      "type": "Forking paths",
+      "assessment": "Budget specification frozen before additional results, while prior test reuse is disclosed as exploratory."
+    },
+    {
+      "type": "Correlation/causation",
+      "assessment": "Budget-only computational intervention checked by exact prefixes; no physical or learning-mechanism causality inferred."
+    },
+    {
+      "type": "Reverse causality",
+      "assessment": "Budget and validation selection precede new test scoring; no empirical causal direction claimed."
+    }
+  ],
+  "interpretation": "Specified budget robustness; no equivalence, global-convergence or deployment-validity claim."
+}

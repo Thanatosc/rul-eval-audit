@@ -1,0 +1,679 @@
+{
+  "status": "complete",
+  "new_fits": 0,
+  "fixed_predictors": 6,
+  "perturbed_prediction_tables": 72,
+  "perturbed_prediction_rows": 1594368,
+  "realization_score_rows": 468,
+  "paired_summary_rows": 180,
+  "winner_contexts": 60,
+  "latency_settings": 12,
+  "measured_latency_calls": 600,
+  "shared_perturbation_draws_verified": 24,
+  "max_clean_prediction_error": 0.0,
+  "first_failed_partial_prediction_matches_completed_attempt": true,
+  "primary_perturbation_rmse_winner_changes": 4,
+  "primary_perturbation_nasa_winner_changes": 6,
+  "primary_perturbation_contexts": 8,
+  "five_percent_gaussian_endpoint": [
+    {
+      "subset": "FD001",
+      "model": "lstm",
+      "split_seed": 42,
+      "init_seed": 11,
+      "kind": "gaussian",
+      "amplitude": 0.05,
+      "truth": "capped125",
+      "population": "endpoint",
+      "corruption_realizations": 3,
+      "rmse": 14.61137028179548,
+      "nasa_mean": 4.674632629683936,
+      "engines": 100,
+      "rmse_ci_lower": 12.217721938982589,
+      "rmse_ci_upper": 16.98602319976168,
+      "nasa_mean_ci_lower": 2.5649392151157864,
+      "nasa_mean_ci_upper": 7.648761450773518,
+      "rmse_difference": 1.1855047635870513,
+      "rmse_difference_ci_lower": 0.5363360413497285,
+      "rmse_difference_ci_upper": 1.8551666954488497,
+      "nasa_mean_difference": 1.0751441528284391,
+      "nasa_difference_ci_lower": 0.4537174526566313,
+      "nasa_difference_ci_upper": 1.8119840300951662
+    },
+    {
+      "subset": "FD001",
+      "model": "cnn_1d",
+      "split_seed": 42,
+      "init_seed": 11,
+      "kind": "gaussian",
+      "amplitude": 0.05,
+      "truth": "capped125",
+      "population": "endpoint",
+      "corruption_realizations": 3,
+      "rmse": 16.554306004528446,
+      "nasa_mean": 6.276753068060381,
+      "engines": 100,
+      "rmse_ci_lower": 13.640641236819624,
+      "rmse_ci_upper": 19.367346484639633,
+      "nasa_mean_ci_lower": 3.2066116251266337,
+      "nasa_mean_ci_upper": 10.25307662908234,
+      "rmse_difference": 0.783369874116989,
+      "rmse_difference_ci_lower": 0.2103436549951058,
+      "rmse_difference_ci_upper": 1.29667041795654,
+      "nasa_mean_difference": 1.273821622835066,
+      "nasa_difference_ci_lower": 0.3002103448974686,
+      "nasa_difference_ci_upper": 2.738717478857573
+    },
+    {
+      "subset": "FD001",
+      "model": "lightgbm",
+      "split_seed": 42,
+      "init_seed": 11,
+      "kind": "gaussian",
+      "amplitude": 0.05,
+      "truth": "capped125",
+      "population": "endpoint",
+      "corruption_realizations": 3,
+      "rmse": 16.263255784475998,
+      "nasa_mean": 3.975267588186624,
+      "engines": 100,
+      "rmse_ci_lower": 13.892064800849754,
+      "rmse_ci_upper": 18.673657822454693,
+      "nasa_mean_ci_lower": 2.686232327700986,
+      "nasa_mean_ci_upper": 5.4935636990226016,
+      "rmse_difference": 2.4958640930573512,
+      "rmse_difference_ci_lower": 0.7689033961228978,
+      "rmse_difference_ci_upper": 4.313486204393052,
+      "nasa_mean_difference": 0.6364209711733801,
+      "nasa_difference_ci_lower": -0.6501450308469421,
+      "nasa_difference_ci_upper": 1.9596710177243972
+    },
+    {
+      "subset": "FD004",
+      "model": "lstm",
+      "split_seed": 42,
+      "init_seed": 11,
+      "kind": "gaussian",
+      "amplitude": 0.05,
+      "truth": "capped125",
+      "population": "endpoint",
+      "corruption_realizations": 3,
+      "rmse": 47.54322356414239,
+      "nasa_mean": 1629.6871211812263,
+      "engines": 248,
+      "rmse_ci_lower": 44.44781262966641,
+      "rmse_ci_upper": 50.540909372442115,
+      "nasa_mean_ci_lower": 920.7394207495933,
+      "nasa_mean_ci_upper": 2496.299807695484,
+      "rmse_difference": 28.453753013302354,
+      "rmse_difference_ci_lower": 25.089431528695844,
+      "rmse_difference_ci_upper": 31.89677078873278,
+      "nasa_mean_difference": 1619.6853311713664,
+      "nasa_difference_ci_lower": 911.9797726141793,
+      "nasa_difference_ci_upper": 2484.253569136855
+    },
+    {
+      "subset": "FD004",
+      "model": "cnn_1d",
+      "split_seed": 42,
+      "init_seed": 11,
+      "kind": "gaussian",
+      "amplitude": 0.05,
+      "truth": "capped125",
+      "population": "endpoint",
+      "corruption_realizations": 3,
+      "rmse": 29.33014864907193,
+      "nasa_mean": 50.26674437395945,
+      "engines": 248,
+      "rmse_ci_lower": 27.328987883612303,
+      "rmse_ci_upper": 31.34179547893712,
+      "nasa_mean_ci_lower": 33.84980615797753,
+      "nasa_mean_ci_upper": 70.83085519537659,
+      "rmse_difference": 4.192077195498889,
+      "rmse_difference_ci_lower": 2.960472471942895,
+      "rmse_difference_ci_upper": 5.402860311008131,
+      "nasa_mean_difference": 30.616318417466864,
+      "nasa_difference_ci_lower": 16.92767189371273,
+      "nasa_difference_ci_upper": 47.71390583729363
+    },
+    {
+      "subset": "FD004",
+      "model": "lightgbm",
+      "split_seed": 42,
+      "init_seed": 11,
+      "kind": "gaussian",
+      "amplitude": 0.05,
+      "truth": "capped125",
+      "population": "endpoint",
+      "corruption_realizations": 3,
+      "rmse": 56.131247939675184,
+      "nasa_mean": 380.66099842578996,
+      "engines": 248,
+      "rmse_ci_lower": 52.772367795269304,
+      "rmse_ci_upper": 59.52254426999942,
+      "nasa_mean_ci_lower": 286.556686984268,
+      "nasa_mean_ci_upper": 490.8187474718124,
+      "rmse_difference": 38.4251950260215,
+      "rmse_difference_ci_lower": 34.61152243145383,
+      "rmse_difference_ci_upper": 42.37909285409551,
+      "nasa_mean_difference": 372.7846151646806,
+      "nasa_difference_ci_lower": 278.69858243339576,
+      "nasa_difference_ci_upper": 483.46876532946817
+    }
+  ],
+  "three_percent_bias_endpoint": [
+    {
+      "subset": "FD001",
+      "model": "lstm",
+      "split_seed": 42,
+      "init_seed": 11,
+      "kind": "engine_bias",
+      "amplitude": 0.03,
+      "truth": "capped125",
+      "population": "endpoint",
+      "corruption_realizations": 3,
+      "rmse": 14.119512859990046,
+      "nasa_mean": 4.459060221374438,
+      "engines": 100,
+      "rmse_ci_lower": 11.543797993737524,
+      "rmse_ci_upper": 16.661472516209297,
+      "nasa_mean_ci_lower": 2.2944967675022943,
+      "nasa_mean_ci_upper": 7.541395207001045,
+      "rmse_difference": 0.6936473417816167,
+      "rmse_difference_ci_lower": 0.1978570934511711,
+      "rmse_difference_ci_upper": 1.2003715110107553,
+      "nasa_mean_difference": 0.859571744518941,
+      "nasa_difference_ci_lower": 0.20053946931206593,
+      "nasa_difference_ci_upper": 1.778621073876639
+    },
+    {
+      "subset": "FD001",
+      "model": "cnn_1d",
+      "split_seed": 42,
+      "init_seed": 11,
+      "kind": "engine_bias",
+      "amplitude": 0.03,
+      "truth": "capped125",
+      "population": "endpoint",
+      "corruption_realizations": 3,
+      "rmse": 16.8582628031375,
+      "nasa_mean": 6.2023145308400975,
+      "engines": 100,
+      "rmse_ci_lower": 14.019889426238054,
+      "rmse_ci_upper": 19.65695917082953,
+      "nasa_mean_ci_lower": 3.4556778902246648,
+      "nasa_mean_ci_upper": 9.712618140041647,
+      "rmse_difference": 1.0873266727260429,
+      "rmse_difference_ci_lower": 0.47055523023266216,
+      "rmse_difference_ci_upper": 1.6810162207436485,
+      "nasa_mean_difference": 1.199383085614783,
+      "nasa_difference_ci_lower": 0.3274777641108466,
+      "nasa_difference_ci_upper": 2.273156635265921
+    },
+    {
+      "subset": "FD001",
+      "model": "lightgbm",
+      "split_seed": 42,
+      "init_seed": 11,
+      "kind": "engine_bias",
+      "amplitude": 0.03,
+      "truth": "capped125",
+      "population": "endpoint",
+      "corruption_realizations": 3,
+      "rmse": 16.007719885240054,
+      "nasa_mean": 4.746897785994906,
+      "engines": 100,
+      "rmse_ci_lower": 13.462594829172922,
+      "rmse_ci_upper": 18.589143859456122,
+      "nasa_mean_ci_lower": 2.907701160820134,
+      "nasa_mean_ci_upper": 7.0331238697641405,
+      "rmse_difference": 2.240328193821407,
+      "rmse_difference_ci_lower": 0.958000432593824,
+      "rmse_difference_ci_upper": 3.61621938639571,
+      "nasa_mean_difference": 1.4080511689816624,
+      "nasa_difference_ci_lower": 0.38058375610557793,
+      "nasa_difference_ci_upper": 2.745572014322824
+    },
+    {
+      "subset": "FD004",
+      "model": "lstm",
+      "split_seed": 42,
+      "init_seed": 11,
+      "kind": "engine_bias",
+      "amplitude": 0.03,
+      "truth": "capped125",
+      "population": "endpoint",
+      "corruption_realizations": 3,
+      "rmse": 38.23659625488593,
+      "nasa_mean": 2616.850099959126,
+      "engines": 248,
+      "rmse_ci_lower": 35.7370876146518,
+      "rmse_ci_upper": 40.7498289967949,
+      "nasa_mean_ci_lower": 176.90577958711665,
+      "nasa_mean_ci_upper": 7387.835349824488,
+      "rmse_difference": 19.147125704045898,
+      "rmse_difference_ci_lower": 16.827532769216464,
+      "rmse_difference_ci_upper": 21.51291583695762,
+      "nasa_mean_difference": 2606.848309949266,
+      "nasa_difference_ci_lower": 167.62497275897567,
+      "nasa_difference_ci_upper": 7378.340249410799
+    },
+    {
+      "subset": "FD004",
+      "model": "cnn_1d",
+      "split_seed": 42,
+      "init_seed": 11,
+      "kind": "engine_bias",
+      "amplitude": 0.03,
+      "truth": "capped125",
+      "population": "endpoint",
+      "corruption_realizations": 3,
+      "rmse": 45.01766109896935,
+      "nasa_mean": 1159.4778543595833,
+      "engines": 248,
+      "rmse_ci_lower": 42.39872427226626,
+      "rmse_ci_upper": 47.516908971466925,
+      "nasa_mean_ci_lower": 679.8862182302737,
+      "nasa_mean_ci_upper": 1747.6808712912218,
+      "rmse_difference": 19.879589645396308,
+      "rmse_difference_ci_lower": 17.36815054758514,
+      "rmse_difference_ci_upper": 22.293592751974604,
+      "nasa_mean_difference": 1139.8274284030906,
+      "nasa_difference_ci_lower": 661.9897606841067,
+      "nasa_difference_ci_upper": 1728.8123544822147
+    },
+    {
+      "subset": "FD004",
+      "model": "lightgbm",
+      "split_seed": 42,
+      "init_seed": 11,
+      "kind": "engine_bias",
+      "amplitude": 0.03,
+      "truth": "capped125",
+      "population": "endpoint",
+      "corruption_realizations": 3,
+      "rmse": 59.310917699223886,
+      "nasa_mean": 1399.7847857489498,
+      "engines": 248,
+      "rmse_ci_lower": 56.5200564677948,
+      "rmse_ci_upper": 62.084630645727735,
+      "nasa_mean_ci_lower": 1026.3192030005227,
+      "nasa_mean_ci_upper": 1839.748819113626,
+      "rmse_difference": 41.6048647855702,
+      "rmse_difference_ci_lower": 38.35033717519821,
+      "rmse_difference_ci_upper": 45.00170950969802,
+      "nasa_mean_difference": 1391.9084024878405,
+      "nasa_difference_ci_lower": 1017.9854560284183,
+      "nasa_difference_ci_upper": 1830.6282531891584
+    }
+  ],
+  "spec_sha256": "2ed8c02d7301e19b2aa21025f1331800d2c6a32d3b86eb2d7ddad7d312397b82",
+  "prediction_files": [
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__lstm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.01__seed101.parquet",
+      "rows": 10196,
+      "sha256": "b7a90e0be26131326be9b3874a708af6e56c02519faa7ddb50af6eec4def3133"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__lstm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.01__seed211.parquet",
+      "rows": 10196,
+      "sha256": "7b3c6e8fcac65504db5d8e43e2e8c77d0d5dfd956d14d9477c0757a61e1f53a9"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__lstm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.01__seed307.parquet",
+      "rows": 10196,
+      "sha256": "79a4636a45425379ac1cca7c73dfe391c01a341cf88d0d1e1b672eac2d6117f8"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__lstm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.03__seed101.parquet",
+      "rows": 10196,
+      "sha256": "a777d7687fdb76c56502f1b572c3ac14559b0482f2dc3c00262d81873177639b"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__lstm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.03__seed211.parquet",
+      "rows": 10196,
+      "sha256": "6d3a80cf9c932a283fcf0a02ce2a04a0201bb62ad04ab876fcf037122b73d461"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__lstm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.03__seed307.parquet",
+      "rows": 10196,
+      "sha256": "a61d33132cdc7f937b06cd95a4105b99c21e5629a9ee7904ff49d40f6408d288"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__lstm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.05__seed101.parquet",
+      "rows": 10196,
+      "sha256": "b862b8bf66953db2b19ec7e523f8ede8dd05bbffb41b2c9fa06ab10b483e04e3"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__lstm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.05__seed211.parquet",
+      "rows": 10196,
+      "sha256": "a23ff7c0ae043ce75b38fe9dfb9be7490f0cc2f9d73119b838183142bb45255e"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__lstm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.05__seed307.parquet",
+      "rows": 10196,
+      "sha256": "8ba55c3b3e86622b5f6b89f7a93c7b24646dfe61033452c05056b71467aaf118"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__lstm__i11__piecewise_125__common_14__scale125/preds_test__engine_bias__a0.03__seed101.parquet",
+      "rows": 10196,
+      "sha256": "2aeda22fbd896ec281e93b3cb9f8b23217c4e250ceab9a913b21c16cf74fb770"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__lstm__i11__piecewise_125__common_14__scale125/preds_test__engine_bias__a0.03__seed211.parquet",
+      "rows": 10196,
+      "sha256": "d87c78cb7d0e5e72a444f4a0368a4376662b91359226410b7dbdec3b0d0f48e3"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__lstm__i11__piecewise_125__common_14__scale125/preds_test__engine_bias__a0.03__seed307.parquet",
+      "rows": 10196,
+      "sha256": "81884ccc6b3cd4433c11f215c6f7399cfd68e5af25d5b942816ef35738451700"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__cnn_1d__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.01__seed101.parquet",
+      "rows": 10196,
+      "sha256": "5f669badb5b9617ca136be4a183ebddb12ee0fac88475f7b59df74a10040e2db"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__cnn_1d__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.01__seed211.parquet",
+      "rows": 10196,
+      "sha256": "beead5e97416664b66de713e3989d9994ff06648c91eda298d8fba3d9904669e"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__cnn_1d__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.01__seed307.parquet",
+      "rows": 10196,
+      "sha256": "20e11d16f6e9844ba7ab022b4927e4c6cb59ee76edaf6789ee6fb658383d54d9"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__cnn_1d__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.03__seed101.parquet",
+      "rows": 10196,
+      "sha256": "dd235aa6d6833c2c182ad87404d6f4e66f16aafddf6d10a0ff46a8013c96eab7"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__cnn_1d__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.03__seed211.parquet",
+      "rows": 10196,
+      "sha256": "edcd5d3fc23cbc872621edcbb5bd857efedcdf96d073a1d590f2e8dc2d029704"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__cnn_1d__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.03__seed307.parquet",
+      "rows": 10196,
+      "sha256": "a30a3b918961e15cf2f7ff06a21c2d5f073c48e6e03803a9d3612a93a6b577fd"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__cnn_1d__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.05__seed101.parquet",
+      "rows": 10196,
+      "sha256": "7b071a549d6509913187260b1250f749b68e7b7ee44a86e295c39f5bb7979458"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__cnn_1d__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.05__seed211.parquet",
+      "rows": 10196,
+      "sha256": "bd1713a2d43d940b8ee9abe15e687af17cbb1156f19c5ccd3cfbf3e78b7e9f6a"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__cnn_1d__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.05__seed307.parquet",
+      "rows": 10196,
+      "sha256": "34f72ef001668c280466d71393fb30ede317855d077e9bd82c2071479b26339c"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__cnn_1d__i11__piecewise_125__common_14__scale125/preds_test__engine_bias__a0.03__seed101.parquet",
+      "rows": 10196,
+      "sha256": "a48c3df062f1c696c2c36d6298efdb8d47f5738b78b1cbb2241d78a5b07fe2b9"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__cnn_1d__i11__piecewise_125__common_14__scale125/preds_test__engine_bias__a0.03__seed211.parquet",
+      "rows": 10196,
+      "sha256": "3107b41940c84229746efcc1466f4213cad0719e19a6b78f3b81374237497b12"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__cnn_1d__i11__piecewise_125__common_14__scale125/preds_test__engine_bias__a0.03__seed307.parquet",
+      "rows": 10196,
+      "sha256": "8f1195385ea0612e57fb61d78efd5388c6baec5ada6488c11c2f4a4f3cbe5901"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__lightgbm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.01__seed101.parquet",
+      "rows": 10196,
+      "sha256": "f013156ac1a7434f15ba4e49b5111fa4e2dc2b3d6732700227a2eca8ee174ad5"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__lightgbm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.01__seed211.parquet",
+      "rows": 10196,
+      "sha256": "78d681e93c7149002f02ccf9e5478be8ad60d11388d7694daa85f4bf71d78c7f"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__lightgbm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.01__seed307.parquet",
+      "rows": 10196,
+      "sha256": "0f745016b5a440657b5e8171cd2eed1b84b1818baa75770d11bcc7b9165c07a2"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__lightgbm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.03__seed101.parquet",
+      "rows": 10196,
+      "sha256": "aae70ea91bcda50db784a4f5139a8348879464120656b25a81e9eebecdecfb56"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__lightgbm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.03__seed211.parquet",
+      "rows": 10196,
+      "sha256": "246779e52195193e37e161bbdbb0da4e4d88ecc1571ce3cdb4ff4cdd91dcc28a"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__lightgbm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.03__seed307.parquet",
+      "rows": 10196,
+      "sha256": "5cc454e48b27b50b96cfae32f6ce304b4ba578555bf03109175081d23a5e41ad"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__lightgbm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.05__seed101.parquet",
+      "rows": 10196,
+      "sha256": "9bba842dd0ea72e6ab28f912a6090741073a4f21772f809be5ae2e8fab80ccf1"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__lightgbm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.05__seed211.parquet",
+      "rows": 10196,
+      "sha256": "422a5313923066dfef8099db7ec542c851b6a285482a4e629c588b7f7870486e"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__lightgbm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.05__seed307.parquet",
+      "rows": 10196,
+      "sha256": "a6818d9ccbce1d82c5ea59192ea03664a804ed80bf29437125744fd246c2d07a"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__lightgbm__i11__piecewise_125__common_14__scale125/preds_test__engine_bias__a0.03__seed101.parquet",
+      "rows": 10196,
+      "sha256": "1ad035949536650dc40761808cad8bccdfd2c4ca3ec09bf91ead995b92aae234"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__lightgbm__i11__piecewise_125__common_14__scale125/preds_test__engine_bias__a0.03__seed211.parquet",
+      "rows": 10196,
+      "sha256": "8b78f3ba0cf2343b17313129e7c19e20404636554b22c306b846f6bfd80ce81a"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd001__s42__lightgbm__i11__piecewise_125__common_14__scale125/preds_test__engine_bias__a0.03__seed307.parquet",
+      "rows": 10196,
+      "sha256": "145b9ee0f5515da9ea16e5c00d122089f29ee3015951f8f5a939c03fb9a92aaf"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__lstm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.01__seed101.parquet",
+      "rows": 34092,
+      "sha256": "ff1b70d6990b488ed19211b2461955a371b6cdcf4f18710c1e3d3b2d2d1de8d4"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__lstm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.01__seed211.parquet",
+      "rows": 34092,
+      "sha256": "548b20367bc834d70e536bee1ad5b0c5c049442ea54a81ff587aa2f8321466f2"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__lstm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.01__seed307.parquet",
+      "rows": 34092,
+      "sha256": "9d2c874941a53a38915b8733480e0b4261de53354f1bd0e7004e811b192d604e"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__lstm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.03__seed101.parquet",
+      "rows": 34092,
+      "sha256": "a7e074c0ef238403d3f30909bd17494ff894b6fbb3cc6cd9daff27cd7191f3cf"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__lstm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.03__seed211.parquet",
+      "rows": 34092,
+      "sha256": "e24d94f780ff82b02f1cef573bb25a823b101d8b8695c951717680229bc5d3e4"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__lstm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.03__seed307.parquet",
+      "rows": 34092,
+      "sha256": "c6d72e6c37d1393ef92143379977d78175a70466a2ce22da56e26ef8e3ba600d"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__lstm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.05__seed101.parquet",
+      "rows": 34092,
+      "sha256": "6a3c874cc726a9625393f9ece475a810e9735648f0b3b6ea438a8d1b9b8b89ee"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__lstm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.05__seed211.parquet",
+      "rows": 34092,
+      "sha256": "dd5607aec453582706837443b9e9c2d579debfca04ed3e1142ed3df6d5b1420a"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__lstm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.05__seed307.parquet",
+      "rows": 34092,
+      "sha256": "73154df73ee7c9262d76168cfb20be7b8d0162dedb309af8f8f50338309704a8"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__lstm__i11__piecewise_125__common_14__scale125/preds_test__engine_bias__a0.03__seed101.parquet",
+      "rows": 34092,
+      "sha256": "8e598c0934e3de5a64ba22ec43c1787b6626b301de6330991563de1d152d9c21"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__lstm__i11__piecewise_125__common_14__scale125/preds_test__engine_bias__a0.03__seed211.parquet",
+      "rows": 34092,
+      "sha256": "047056627b74ab4079526a95b49179fd99e2f8a59a3d5a0d2e535d6854e629ba"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__lstm__i11__piecewise_125__common_14__scale125/preds_test__engine_bias__a0.03__seed307.parquet",
+      "rows": 34092,
+      "sha256": "741d16c095aa61c8fe29dc11491a4f3de7cc2eea220bc9a11b411598b9ec815b"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__cnn_1d__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.01__seed101.parquet",
+      "rows": 34092,
+      "sha256": "3463c50b73191cce85db636fd5e260572290121722aaf8e7d6fac2e480f0dcae"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__cnn_1d__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.01__seed211.parquet",
+      "rows": 34092,
+      "sha256": "2f78c7d189cc954063907468e8dedcb22ed6a4e5131c141fa99a88297737eeb6"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__cnn_1d__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.01__seed307.parquet",
+      "rows": 34092,
+      "sha256": "cb5eaaa81a660054ade50e41d19f3fb753885c8e9b8a64e0d491a7ad821db6ba"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__cnn_1d__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.03__seed101.parquet",
+      "rows": 34092,
+      "sha256": "611ec9203f9248c8f5a11b4baff5643a0855dc31bd4af3e91046bf7b5201df1b"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__cnn_1d__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.03__seed211.parquet",
+      "rows": 34092,
+      "sha256": "f084c4530af5ae7061396d15398faafd6f51db30b3c517897343c448c75edbda"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__cnn_1d__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.03__seed307.parquet",
+      "rows": 34092,
+      "sha256": "4eaa448ead33b07d7f84e684201d4a3131a30fa1d7d21ecaefd8b2f9f40ad515"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__cnn_1d__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.05__seed101.parquet",
+      "rows": 34092,
+      "sha256": "4849d3d6b7d74f4ed288bfd24af025da0d5acb613a5f17ff0789227f2e03dec6"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__cnn_1d__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.05__seed211.parquet",
+      "rows": 34092,
+      "sha256": "42f45c84aa8e09bec9d1c27c7c31c0f2a24fac2b670c0d4683ece204c1feb2f7"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__cnn_1d__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.05__seed307.parquet",
+      "rows": 34092,
+      "sha256": "3ade554a51aa762d19e3d9dd61c00bc1f69bd380bda5ebf213b0ec39c0b3f584"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__cnn_1d__i11__piecewise_125__common_14__scale125/preds_test__engine_bias__a0.03__seed101.parquet",
+      "rows": 34092,
+      "sha256": "da4f1bdea6be250d566b15abe58c46ab7dfbf4719cf432c22ce96247a8eab272"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__cnn_1d__i11__piecewise_125__common_14__scale125/preds_test__engine_bias__a0.03__seed211.parquet",
+      "rows": 34092,
+      "sha256": "d7db0ba335f3ef37aa611ed2bddc7c0ad789af5709b494e95dac7cf01ef3ea22"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__cnn_1d__i11__piecewise_125__common_14__scale125/preds_test__engine_bias__a0.03__seed307.parquet",
+      "rows": 34092,
+      "sha256": "0c8111216ad7a53f17e51ed48f4b31adbd243ede289fb28243a61392a0b4ba58"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__lightgbm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.01__seed101.parquet",
+      "rows": 34092,
+      "sha256": "aac067e07301fa91ec25648525fe2714f16fabe4358d0a28fdba0d118307b5f4"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__lightgbm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.01__seed211.parquet",
+      "rows": 34092,
+      "sha256": "1a53c4ec2bf282df28ec6050348f44cf4c35b552d341bb480123421a2a5c6d65"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__lightgbm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.01__seed307.parquet",
+      "rows": 34092,
+      "sha256": "1c7fb6bcb35d656b0e93e6ad7c71758ce49da6fe8b309fff2c4948d5bb5df545"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__lightgbm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.03__seed101.parquet",
+      "rows": 34092,
+      "sha256": "5cd57ce9f827f6a06470cb4ef5a4543266969121876b0fc35caf258859e0b41a"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__lightgbm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.03__seed211.parquet",
+      "rows": 34092,
+      "sha256": "b90e5f7de6558b551c1690c61ee126f5e53bdf53633686e6c9ecd9a46080ae42"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__lightgbm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.03__seed307.parquet",
+      "rows": 34092,
+      "sha256": "e9e0faa8d7b91c20553e452c997f6b98a343b8739f6a7d2da26cfb5caa826df2"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__lightgbm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.05__seed101.parquet",
+      "rows": 34092,
+      "sha256": "26d9fbd6491bb651189fecdfa1a2e0daf1805ab122cfe5f9f479cd3872486e9f"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__lightgbm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.05__seed211.parquet",
+      "rows": 34092,
+      "sha256": "cdbdf3c3c0d447b30318587da42b78aabf671751b0645f8ee98c4b3102b333ca"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__lightgbm__i11__piecewise_125__common_14__scale125/preds_test__gaussian__a0.05__seed307.parquet",
+      "rows": 34092,
+      "sha256": "ca7913e8d40d5ac8c0f5aef3bf3cdec2a10d93a4609bc7027a326eeabbb7610a"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__lightgbm__i11__piecewise_125__common_14__scale125/preds_test__engine_bias__a0.03__seed101.parquet",
+      "rows": 34092,
+      "sha256": "440f94d168dc98666b51c1aeeba203fafa2e76651207dbdcf4751e72dd70790a"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__lightgbm__i11__piecewise_125__common_14__scale125/preds_test__engine_bias__a0.03__seed211.parquet",
+      "rows": 34092,
+      "sha256": "3bf3803b3fc63d674117f630c270875ff0f63bb7f3d6de1335d4303a2357bbde"
+    },
+    {
+      "path": "review_followups/model_checks/core__fd004__s42__lightgbm__i11__piecewise_125__common_14__scale125/preds_test__engine_bias__a0.03__seed307.parquet",
+      "rows": 34092,
+      "sha256": "48a1a6ffe76f6b1847ccc827451568b7991728bb1aa6f820ff34c00ea7c869d6"
+    }
+  ],
+  "caveats": [
+    "Exploratory use of known benchmark data; no field-calibrated noise model.",
+    "Six fixed predictors, one partition and initialization; corruption seeds are not training replications.",
+    "No noise-aware retraining, target/architecture tuning, deployment guarantee or real maintenance-cost claim.",
+    "CPU and GPU timings describe these implementations and cannot isolate architecture efficiency."
+  ]
+}

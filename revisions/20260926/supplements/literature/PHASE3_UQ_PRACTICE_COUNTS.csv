@@ -1,0 +1,22 @@
+dimension,category,n,denominator,percent,paper_ids,interpretive_limit
+UQ reported output,no,15,19,78.9,C01;C02;C03;C04;C07;C08;C09;C10;C11;C12;C13;C14;C15;C16;C18,Run-level confidence intervals for mean metrics are not predictive UQ.
+UQ reported output,interval,2,19,10.5,C06;C21,"Output-object coding describes reporting practice, not interval quality."
+UQ reported output,distribution,0,19,0.0,,"Output-object coding describes reporting practice, not interval quality."
+UQ reported output,set,0,19,0.0,,"Output-object coding describes reporting practice, not interval quality."
+UQ reported output,multiple,2,19,10.5,C05;C17,"Output-object coding describes reporting practice, not interval quality."
+UQ reported output,NR,0,19,0.0,,"Output-object coding describes reporting practice, not interval quality."
+UQ reported output,not_applicable,0,19,0.0,,"Output-object coding describes reporting practice, not interval quality."
+UQ method,none,15,19,78.9,C01;C02;C03;C04;C07;C08;C09;C10;C11;C12;C13;C14;C15;C16;C18,Method labels follow the implemented mechanism; titles alone are not coded.
+UQ method,mc_dropout,1,19,5.3,C06,Method labels follow the implemented mechanism; titles alone are not coded.
+UQ method,deep_ensemble,0,19,0.0,,Method labels follow the implemented mechanism; titles alone are not coded.
+UQ method,bayesian,0,19,0.0,,Method labels follow the implemented mechanism; titles alone are not coded.
+UQ method,conformal,0,19,0.0,,Method labels follow the implemented mechanism; titles alone are not coded.
+UQ method,quantile_regression,0,19,0.0,,Method labels follow the implemented mechanism; titles alone are not coded.
+UQ method,other,1,19,5.3,C21,Method labels follow the implemented mechanism; titles alone are not coded.
+UQ method,multiple,2,19,10.5,C05;C17,Method labels follow the implemented mechanism; titles alone are not coded.
+UQ method,NR,0,19,0.0,,Method labels follow the implemented mechanism; titles alone are not coded.
+UQ method,not_applicable,0,19,0.0,,Method labels follow the implemented mechanism; titles alone are not coded.
+UQ validation,yes,1,19,5.3,C17,Yes requires nominal-versus-empirical coverage or calibration on independent data; no does not imply the UQ method is invalid.
+UQ validation,no,18,19,94.7,C01;C02;C03;C04;C05;C06;C07;C08;C09;C10;C11;C12;C13;C14;C15;C16;C18;C21,Yes requires nominal-versus-empirical coverage or calibration on independent data; no does not imply the UQ method is invalid.
+UQ validation,NR,0,19,0.0,,Yes requires nominal-versus-empirical coverage or calibration on independent data; no does not imply the UQ method is invalid.
+UQ validation,not_applicable,0,19,0.0,,Yes requires nominal-versus-empirical coverage or calibration on independent data; no does not imply the UQ method is invalid.

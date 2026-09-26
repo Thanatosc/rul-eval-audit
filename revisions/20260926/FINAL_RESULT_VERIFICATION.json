@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "grid_cells": 96,
+  "prediction_tables_checked": 288,
+  "prediction_rows_checked": 3064462,
+  "independent_endpoint_scores": 192,
+  "independent_window_scores": 384,
+  "maximum_rmse_absolute_or_nasa_relative_error": 2.842170943040401e-14,
+  "data_files_verified": 12,
+  "single_training_script_hash": "d466b9a2d65287e540844c664ace76a4ef85cce8dfd2d017797931561770b2a7",
+  "frozen_specification_hash": "8f4c334b8fefe2e79591f23a3b7b7a7487b73e207093e5f990048fa56c8532c4",
+  "complete_planned_grid": true,
+  "diagnostic_maximum_absolute_prediction_difference": 0.0,
+  "diagnostic_matched_prediction_rows": 26511,
+  "historical_prediction_sha256": "2e442b621cf042667b7a6305ebf5a9277bdff83945a9e58a9fe825cc393e5582",
+  "diagnostic_prediction_sha256": "2f04f4512d0dac01beeac3f399491a482ef1167b52f1c782ab768f8842ee623c",
+  "scope": "Artifact/data identity, complete grid and endpoint recomputation; not a certificate of scientific novelty or generalization."
+}

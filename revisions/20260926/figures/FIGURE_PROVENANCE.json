@@ -1,0 +1,21 @@
+{
+  "script_sha256": "44f576d66d891cdd693bbcaa125c59688f80a1f4b6f97e1892b20a97abcdb4fe",
+  "sources": {
+    "analysis/metric_winner_contexts.csv": "f44c00cea0be134da841ee3405dec1bb79942610ec7d7e66e1d3a58dbed143d6",
+    "analysis/paired_factor_contrasts.csv": "25b9727f53102e3a98aa8c69476bdf54dedeabd0cf90966b6135075695d75a0c",
+    "analysis/uq_stage_engine_bootstrap.csv": "149a6faa4f2540563dab7acaa9341fb74e2cb583501c5fa14b5078c98f62f8ff",
+    "diagnostics/diagnostic__fd002__s42__lstm__i11__piecewise_125__common_14__scale1/meta.json": "155b1e4850c764304994563374ffdb8434b7682f595ccdc23c8725027d7522f4",
+    "diagnostics/diagnostic__fd002__s42__lstm__i11__piecewise_125__common_14__scale1/preds_test.parquet": "2f04f4512d0dac01beeac3f399491a482ef1167b52f1c782ab768f8842ee623c",
+    "diagnostics/diagnostic__fd002__s42__lstm__i11__piecewise_125__common_14__scale1/training_curve.csv": "f2cc1544aa784187e2d5e6d04becab684af87ead8c06ca939c916c247a553df6",
+    "diagnostics/diagnostic__fd002__s42__lstm__i11__piecewise_125__common_14__scale125/meta.json": "407c4ad7b8f7f329f1f84f4e62cfaf0288b3164a186a3b336c009516b75c021c",
+    "diagnostics/diagnostic__fd002__s42__lstm__i11__piecewise_125__common_14__scale125/preds_test.parquet": "33ca1603f52c50d5b1371e0fad82d9e30304818776e20018fc88f2269f132b9d",
+    "diagnostics/diagnostic__fd002__s42__lstm__i11__piecewise_125__common_14__scale125/training_curve.csv": "ca7a3905587b9a1b4abb4969ba291878779ff7bae3f9c6ac927d291772ce120f"
+  },
+  "png_dpi": 300,
+  "formats": [
+    "png",
+    "pdf",
+    "svg"
+  ],
+  "resampling": "5000 paired engine replicates from the analysis tables; calibration held fixed"
+}

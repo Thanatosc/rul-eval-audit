@@ -1,0 +1,2 @@
+# Preserve checksummed source and data bytes across checkout/archive platforms.
+* -text

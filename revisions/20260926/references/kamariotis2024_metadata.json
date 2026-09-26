@@ -1,0 +1,130 @@
+{
+  "ok": true,
+  "tool": "get_paper_by_doi",
+  "message": "Found 3 paper(s) with DOI 10.1016/j.ress.2023.109723 across 9 source(s).",
+  "data": {
+    "doi": "10.1016/j.ress.2023.109723",
+    "sources_requested": "all",
+    "sources_used": [
+      "crossref",
+      "openalex",
+      "unpaywall",
+      "pubmed",
+      "pmc",
+      "europepmc",
+      "core",
+      "webofscience",
+      "arxiv"
+    ],
+    "source_results": {
+      "crossref": 1,
+      "openalex": 1,
+      "unpaywall": 1,
+      "pubmed": 0,
+      "pmc": 0,
+      "europepmc": 0,
+      "core": 0,
+      "webofscience": 0,
+      "arxiv": 0
+    },
+    "errors": {
+      "core": "core DOI lookup timed out after 15000ms"
+    },
+    "failed_sources": [
+      "core"
+    ],
+    "warnings": [
+      "core: core DOI lookup timed out after 15000ms"
+    ],
+    "total": 3,
+    "papers": [
+      {
+        "paper_id": "10.1016/j.ress.2023.109723",
+        "title": "A metric for assessing and optimizing data-driven prognostic algorithms for predictive maintenance",
+        "authors": "Antonios Kamariotis; Konstantinos Tatsis; Eleni Chatzi; Kai Goebel; Daniel Straub",
+        "abstract": "",
+        "doi": "10.1016/j.ress.2023.109723",
+        "published_date": "2024-01-31T16:00:00.000Z",
+        "pdf_url": "",
+        "url": "https://doi.org/10.1016/j.ress.2023.109723",
+        "source": "crossref",
+        "updated_date": "",
+        "categories": "",
+        "keywords": "",
+        "citation_count": 57,
+        "references": "10.1016/j.ress.2021.108119; 10.1016/j.engappai.2020.103678; 10.1016/j.ress.2014.04.005; 10.1016/j.ress.2016.05.014; 10.1016/j.strusafe.2018.08.002; 10.1016/j.ress.2023.109496; 10.1016/j.ymssp.2017.11.016; 10.1016/j.ress.2017.11.021; 10.1016/j.neucom.2017.05.063; 10.1016/j.ress.2018.11.011; 10.1016/j.ress.2022.108383; 10.1109/PHM.2008.4711414; 10.1016/j.ejor.2010.11.018; 10.1016/j.ymssp.2017.01.050; 10.1016/j.ress.2021.107961; 10.1109/JIOT.2019.2957029; 10.1016/j.ress.2014.08.011; 10.1016/j.ress.2022.108391; 10.1016/j.ress.2022.108341; 10.1016/j.ress.2019.03.018; 10.1016/j.ymssp.2022.109053; 10.1115/1.3656900; 10.1016/j.ress.2007.03.019; 10.1016/j.ejor.2018.02.033; 10.1109/TR.2018.2829771; 10.1016/j.ress.2021.107536; 10.1016/j.ress.2021.107761; 10.1016/j.ymssp.2021.108465; 10.3850/978-981-11-2724-3_-cd; 10.1109/PHM-Besancon49106.2020.00039; 10.1016/j.ress.2023.109199; 10.1016/j.ress.2023.109181; 10.1109/PHM.2008.4711436; 10.1109/TCYB.2014.2378056; 10.1109/TR.2015.2500681; 10.36001/phme.2022.v7i1.3320; 10.1016/j.ress.2022.108473; 10.1016/j.ress.2020.107133; 10.1002/047001363X.ch2; 10.1016/j.strusafe.2017.03.002; 10.1002/(SICI)1097-0320(20000401)39:4<300::AID-CYTO8>3.0.CO;2-O; 10.1016/j.ymssp.2022.109708; 10.1023/A:1007465528199; 10.1016/j.ress.2012.11.022; 10.1017/CBO9781139344203; 10.1016/j.jmsy.2018.05.011; 10.1109/TIM.2008.2005965; 10.1016/j.ress.2021.107551; 10.1016/j.ress.2022.108908",
+        "journal": "Reliability Engineering &amp; System Safety",
+        "volume": "242",
+        "issue": "",
+        "pages": "109723",
+        "year": 2024,
+        "extra": "{\"publisher\":\"Elsevier BV\",\"type\":\"journal-article\",\"issn\":[\"0951-8320\"],\"isbn\":[],\"subjects\":[]}"
+      },
+      {
+        "paper_id": "W4387492920",
+        "title": "A metric for assessing and optimizing data-driven prognostic algorithms for predictive maintenance",
+        "authors": "Antonios Kamariotis; Konstantinos Tatsis; Eleni Chatzi; Kai Goebel; Dániel Straub",
+        "abstract": "",
+        "doi": "10.1016/j.ress.2023.109723",
+        "published_date": "2023-10-10T00:00:00.000Z",
+        "pdf_url": "",
+        "url": "https://doi.org/10.1016/j.ress.2023.109723",
+        "source": "openalex",
+        "updated_date": "",
+        "categories": "Metric (unit); Hyperparameter; Computer science; Algorithm; Predictive maintenance",
+        "keywords": "",
+        "citation_count": 59,
+        "references": "",
+        "journal": "",
+        "volume": "",
+        "issue": "",
+        "pages": "",
+        "year": 2023,
+        "extra": "{\"openAccess\":false,\"oaStatus\":\"closed\",\"openAlexId\":\"https://openalex.org/W4387492920\"}"
+      },
+      {
+        "paper_id": "unpaywall:10.1016/j.ress.2023.109723",
+        "title": "A metric for assessing and optimizing data-driven prognostic algorithms for predictive maintenance",
+        "authors": "",
+        "abstract": "",
+        "doi": "10.1016/j.ress.2023.109723",
+        "published_date": "2023-10-10T00:00:00.000Z",
+        "pdf_url": "",
+        "url": "https://doi.org/10.1016/j.ress.2023.109723",
+        "source": "unpaywall",
+        "updated_date": "",
+        "categories": "",
+        "keywords": "",
+        "citation_count": 0,
+        "references": "",
+        "journal": "Reliability Engineering & System Safety",
+        "volume": "",
+        "issue": "",
+        "pages": "",
+        "year": null,
+        "extra": "{\"isOpenAccess\":false,\"oaStatus\":\"closed\",\"publisher\":\"Elsevier BV\",\"hostType\":\"\",\"license\":\"\",\"version\":\"\"}"
+      }
+    ]
+  },
+  "diagnostic": {
+    "severity": "warning",
+    "category": "partial_failure",
+    "platform": "core",
+    "tool": "get_paper_by_doi",
+    "summary": "Some requested sources failed: core.",
+    "likelyCauses": [
+      "core: core DOI lookup timed out after 15000ms"
+    ],
+    "actions": [
+      "Inspect the `errors` object in the output for provider-specific messages.",
+      "Retry this provider alone with `--max-results 1` if it is important.",
+      "Use faster fallback sources such as Crossref, OpenAlex, PubMed, Europe PMC, CORE, or Unpaywall.",
+      "Configure `CORE_API_KEY` for higher limits.",
+      "If results are empty, retry through Europe PMC, PMC, OpenAIRE, or OpenAlex.",
+      "Use DOI/title fallbacks for PDF discovery."
+    ],
+    "relatedConfigKeys": [
+      "CORE_API_KEY"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "status": "verified",
+  "design_status": "Post hoc descriptive attribution after inspecting the completed frozen perturbation checks.",
+  "identity": "MSE_perturbed - MSE_clean = 2 mean(clean_error * prediction_displacement) + mean(prediction_displacement^2)",
+  "maximum_per_engine_identity_error": 5.4569682106375694e-12,
+  "realization_rows": 72,
+  "summary_rows": 24,
+  "scope": "Exact prediction/error accounting; no isolation of internal learning dynamics or proof of why an architecture is sensitive.",
+  "source_score_sha256": "18c077863800a18af537d3e2b41a81726611ac2b90e192eb1f059823bf353b97"
+}

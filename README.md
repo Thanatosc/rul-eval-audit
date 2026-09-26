@@ -1,136 +1,91 @@
-
 # RUL Evaluation Audit
 
-Reproducible code and aggregate artifacts for **Protocol-Conditioned Measurement
-in C-MAPSS Remaining-Useful-Life Evaluation: A Literature-Practice Audit and
-Controlled Re-Benchmark**.
+Software version 0.2.0 supplies the corrective code and aggregate evidence for
+**Training adequacy and evaluation populations in remaining useful life benchmarks**.
+The companion generated-artifact dataset version is 1.1.0.
 
-The study asks how declared label construction, sensor selection, windowing,
-preprocessing boundaries, prediction populations, and metric choices affect
-reported C-MAPSS remaining-useful-life (RUL) results. It is an evaluation audit
-and controlled re-benchmark, not a new forecasting architecture or a state-of-
-the-art claim.
+## Version identifiers
 
-## Released study components
+- Software v0.2.0: <https://doi.org/10.5281/zenodo.22980668>
+- Generated-artifact dataset v1.1.0: <https://doi.org/10.5281/zenodo.22980776>
+- GitHub release: <https://github.com/Thanatosc/rul-eval-audit/releases/tag/v0.2.0>
 
-- 25-record frozen literature corpus: 19 model/protocol papers and 6 labelled anchors;
-- 120-cell registered Kill Test over two subsets, three backbones, two labels,
-  two sensor sets, and five seeds;
-- 160-cell unified point/quantile grid over four subsets, four backbones, five
-  seeds, and two output modes;
-- 280-cell empirical uncertainty reference arm using residual split conformal
-  prediction and conformalized quantile regression;
-- secondary common-truth rescoring of all 120 Kill Test prediction artifacts,
-  with 24 paired contrasts and three strict model-pair reversals;
-- frozen configurations, engine-unit split manifests, aggregate results,
-  figures, schemas, and validation tests.
+Use these version-specific identifiers for the corrective study. Earlier
+version identifiers below continue to identify the historical experiments.
 
-## Repository layout
+## Current evidence
+
+- 96 primary corrective fits: 60 core fits and 36 target/input factorial fits.
+- Two controlled numerical-scale diagnostics, with the original weak FD002 LSTM
+  predictions reproduced exactly before changing the training scale.
+- Nine additional budget checks covering every primary final-cap flag. Their
+  original prediction prefixes were reproduced exactly; all extended fits stopped
+  by validation patience before the threefold cap.
+- Sensor-noise/bias checks on six fixed reference predictors: 72 perturbed
+  test-prediction tables, error-displacement accounting and 600 inference timings.
+- Engine-paired error assessment under two common scoring truths and three
+  prediction populations, with separate partition/initialization sensitivity.
+- Literature coding for the retained purposive 19-paper model/protocol corpus,
+  plus six contextual anchors, and empirical interval summaries by life stage.
+
+The budget extension preserves all 24 endpoint-to-window training-target
+preferences on raw truth and the RMSE/NASA winning sets in all 144 core contexts.
+The separate sensor check changes the FD004 reference winner under the prescribed
+range-scaled perturbations; it does not establish field-noise robustness.
+This is an exploratory assessment of one simulated benchmark. It does not
+establish general convergence, a new predictive architecture, deployment coverage
+or maintenance-cost savings. Read Supplements S1, S2, S4 and S5 for the design and
+all limitations.
+
+## Reproduce the corrective analysis
+
+`revisions/20260926/` preserves the scientific scripts, specifications, complete
+aggregate tables, figures and supplements. Historical root-level code and tables
+are retained for provenance. Run the frozen corrective scripts from their
+original two-directory layout, created from the companion dataset:
 
 ```text
-configs/        frozen experiment configurations and split manifests
-data/           provenance and dataset acquisition instructions only
-paper/figures/  generated study figures
-papercorpus/    machine-readable literature coding (no source PDFs)
-project/        public result and registration notes
-protocols/      frozen evaluation protocol
-results/        aggregate result tables, registers, and schemas
-scripts/        analysis and UQ post-processing scripts
-src/            reusable Python implementation
-tests/          public core and data-backed validation tests
+python scripts/prepare_corrective_workspace.py --dataset rul-eval-audit-corrective-results-v1.1.0.zip --output reproduction-workspace
+cd reproduction-workspace/post_rejection_20260926/transfer_revision
+python -X utf8 analyze_repair.py
+python -X utf8 explain_results.py
+python -X utf8 budget_sensitivity/analyze_budget_checks.py
+python -X utf8 budget_sensitivity/build_budget_supplement.py
+python -X utf8 review_followups/analyze_review_checks.py
+python -X utf8 review_followups/explain_sensor_sensitivity.py
+python -X utf8 review_followups/build_review_supplement.py
 ```
 
-## Data boundary
+Use the versions in `revisions/20260926/ENVIRONMENT_SNAPSHOT.json`. The
+materializer checks every payload digest and refuses to overwrite differing
+files. It needs only the local dataset archive. These analysis commands consume
+supplied predictions and perform no model training. Model reload verification
+and fresh fitting additionally require the official NASA data and recorded
+training environment; see S2, S4 and S5. Raw NASA sensor data are not redistributed.
 
-The NASA C-MAPSS archive and extracted source tables are not redistributed. Use
-the official URLs and SHA-256 in `data/DATASETS.md`, then extract the official
-text files to `data/interim/cmapss/` if rerunning model training.
+## What changed from the historical release
 
-Restricted literature PDFs and publisher supplements are not included. The
-machine-readable coding tables contain bibliographic metadata and bounded
-protocol observations only.
+Historical software v0.1.2 is archived at
+<https://doi.org/10.5281/zenodo.21915989> and historical data v1.0.2 at
+<https://doi.org/10.5281/zenodo.21915990>. Those version-specific DOIs refer to the
+earlier experiments, not these corrective fits. They remain available for audit.
 
-Generated per-window prediction and interval artifacts are distributed through
-a separate Zenodo dataset because they are too large and too granular for the
-GitHub repository. Copy every dataset part into this repository root before
-running the data-backed validation suite.
+The corrective study supersedes architectural interpretations of the archived
+nearly constant baseline, improvement claims based on comparing different native
+truths, and inference that treats seed-labelled deterministic-tree repetitions as
+independent fits. The historical outputs are retained as historical evidence;
+the current conclusions use common truths, repaired training and engine-paired
+analysis. See `CHANGELOG.md` and `docs/CORRECTIVE_RELEASE.md`.
 
-## Environment
+## Data and licensing
 
-Python 3.11 is required. The original run used Python 3.11.9; exact observed
-package versions are recorded in `environment/requirements-lock.txt`.
+Software is MIT licensed. The separately deposited generated dataset is licensed
+CC BY 4.0 for the author's copyrightable contributions; this does not claim or
+relicense NASA-origin facts. It contains 107 fitted-run records, 321 fit prediction
+tables, 72 fixed-model sensor-perturbation prediction tables, and 20 historical test-prediction inputs required by the
+corrective analyses. The complete earlier 120/160/280-cell archives remain in
+dataset v1.0.2; they are not duplicated in their entirety in v1.1.0.
 
-```powershell
-py -3.11 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install --upgrade pip
-.\.venv\Scripts\python.exe -m pip install -e ".[dev]"
-```
-
-PyTorch CUDA wheels are platform-specific. The recorded experimental build was
-`torch 2.13.0+cu130` on an NVIDIA RTX 4060 Laptop GPU. Install an appropriate
-official PyTorch build for your platform before attempting neural retraining.
-
-## Verification
-
-Core tests do not require NASA source data or the companion Zenodo dataset.
-The data-closure test is skipped until the dataset parts are restored:
-
-```powershell
-.\.venv\Scripts\python.exe -m pytest -q tests
-```
-
-After restoring all companion dataset parts into the repository root, run:
-
-```powershell
-.\.venv\Scripts\python.exe -m pytest -q tests
-.\.venv\Scripts\python.exe scripts\analyze_kill_test.py --root .
-.\.venv\Scripts\python.exe scripts\analyze_unified_grid.py --root .
-.\.venv\Scripts\python.exe scripts\analyze_postgrid.py --root .
-.\.venv\Scripts\python.exe scripts\uq_reference_arm.py --root . --analyze
-```
-
-The common-truth aggregate tables can be checked through the test suite without
-redistributing NASA source data. Re-executing the common-truth rescoring script
-also requires the official NASA archive and extracted test/RUL tables described
-in `data/DATASETS.md`:
-
-```powershell
-.\.venv\Scripts\python.exe scripts\analyze_common_truth.py --root .
-```
-
-The common-truth plan pre-listed LSTM-versus-CNN reversal checks. The analysis
-script also scans all configured model pairs as an exploratory descriptive
-extension; the additional LSTM-versus-LightGBM reversal is therefore
-exploratory rather than prospectively specified.
-
-The UQ arm is an empirical reference under the declared engine-disjoint
-calibration design. It is not a strict window-level, conditional, trajectory-
-wise, or deployment coverage certificate.
-
-## Citation and archival identifiers
-
-- Software v0.1.2: <https://doi.org/10.5281/zenodo.21915989>
-- Software concept DOI: <https://doi.org/10.5281/zenodo.21905028>
-- Generated result dataset v1.0.2: <https://doi.org/10.5281/zenodo.21915990>
-- Dataset concept DOI: <https://doi.org/10.5281/zenodo.21905032>
-- GitHub release source: <https://github.com/Thanatosc/rul-eval-audit/tree/v0.1.2>
-
-Use the version-specific software DOI when citing this exact code release and
-the version-specific dataset DOI when using the generated prediction or
-interval artifacts. Concept DOIs resolve to the latest published version.
-
-## Authorship and declarations
-
-Siyu Cai, School of Computing and Artificial Intelligence, Southwest Jiaotong
-University. ORCID: 0009-0003-3716-0008.
-
-This research received no external funding. The author declares no competing
-interests.
-
-## License
-
-Software is released under the MIT License. Generated result data, figures,
-coding tables, and documentation are released under CC BY 4.0; see `LICENSES/`.
-Raw third-party datasets and publications are not included. NASA-derived factual
-fields retained in prediction artifacts remain under applicable upstream terms;
-the project does not assert ownership over those facts.
+Literature full texts, raw NASA sensor files, manuscripts, submission letters,
+credentials and internal author guidance are excluded. Open code and derived
+data do not determine whether the journal article is published open access.

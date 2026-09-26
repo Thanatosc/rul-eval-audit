@@ -1,0 +1,20 @@
+{
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "packages": {
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "torch": "2.13.0+cu130",
+    "lightgbm": "4.7.0",
+    "scikit-learn": "1.9.0",
+    "scipy": "1.17.1",
+    "pyarrow": "21.0.0",
+    "matplotlib": "3.11.1",
+    "python-docx": null,
+    "pillow": "12.3.0"
+  },
+  "torch_cuda_build": "13.0",
+  "neural_device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "tree_threads": 1,
+  "recorded_for": "2026-09-26 corrective revision"
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "run_id": "diagnostic__fd002__s42__lstm__i11__piecewise_125__common_14__scale1",
+    "original_sha256": "c72278553599f39a65501a62632bc684c5ddd045a0feae7c4441fe0f6d5a34e0",
+    "corrected_sha256": "155b1e4850c764304994563374ffdb8434b7682f595ccdc23c8725027d7522f4",
+    "reason": "2026-09-26: v1 units field counted windows. Values moved unchanged to prediction_rows; units now counts distinct engines. No predictions, checkpoints, curves or metrics modified.",
+    "corrected_units": {
+      "train": 182,
+      "val": 39,
+      "calib": 39,
+      "test": 259
+    }
+  },
+  {
+    "run_id": "diagnostic__fd002__s42__lstm__i11__piecewise_125__common_14__scale125",
+    "original_sha256": "2b73710a9fda8df1e365706ca1e5cf00d7c7ec91c324760dc3f72e228b7e8695",
+    "corrected_sha256": "407c4ad7b8f7f329f1f84f4e62cfaf0288b3164a186a3b336c009516b75c021c",
+    "reason": "2026-09-26: v1 units field counted windows. Values moved unchanged to prediction_rows; units now counts distinct engines. No predictions, checkpoints, curves or metrics modified.",
+    "corrected_units": {
+      "train": 182,
+      "val": 39,
+      "calib": 39,
+      "test": 259
+    }
+  }
+]

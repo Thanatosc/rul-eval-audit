@@ -1,0 +1,11 @@
+{
+  "issue": "The first execution computed clean predictions, latency and one corrupted prediction table, then failed when a metadata dictionary received two rows keys.",
+  "correction": "Rename the observation-row audit field to sensor_observation_rows; preserve prediction rows separately.",
+  "design_changed": false,
+  "frozen_specification_changed": false,
+  "retry_scope": "Restart fixed-model prediction/latency checks after inspecting the failed metadata write. No model fitting is performed.",
+  "selection_basis": "Execution completeness; no experimental outcome was used to select the retry or any configuration.",
+  "failed_partial_prediction_sha256": "b7a90e0be26131326be9b3874a708af6e56c02519faa7ddb50af6eec4def3133",
+  "failed_attempt_retained_locally": "failed_attempts/metadata_duplicate_rows/",
+  "failed_latency_measurements_not_used": 100
+}

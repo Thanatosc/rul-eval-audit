@@ -1,0 +1,19 @@
+{
+  "status": "complete",
+  "completed_grid_runs": 96,
+  "planned_grid_runs": 96,
+  "score_rows": 576,
+  "core_summary_rows": 216,
+  "factor_contrast_rows": 96,
+  "primary_winner_contexts": 24,
+  "primary_metric_winner_conflicts": 6,
+  "bootstrap_replicates": 5000,
+  "uq_stage_rows": 108,
+  "cap_with_recent_best_count": 9,
+  "cautions": [
+    "Post-rejection exploratory analyses on previously examined benchmark data.",
+    "Bootstrap samples engines conditional on fitted models and calibration scores.",
+    "Repeated engine splits and initialization contexts are not independent devices.",
+    "Tree models are stored once; reused only as a reference when listing seed-specific rankings."
+  ]
+}
